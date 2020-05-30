@@ -1,0 +1,2 @@
+rootProject.name='arridle'
+include ':app'
