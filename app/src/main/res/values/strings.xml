@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">arridle</string>
+    <string name="app_name">ARriddle</string>
+    <!-- Titre des activités (affiché dans le menu et dans la actionbar-->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apropos_activity_title">À propos</string>
+    <string name="settings_activity_title">Paramètres</string>
+    <string name="main_activity_title">Accueil</string>
+
 </resources>
