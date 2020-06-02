@@ -6,4 +6,7 @@
     <string name="settings_activity_title">Paramètres</string>
     <string name="main_activity_title">Accueil</string>
 
+    <!-- textes divers -->
+    <string name="apropos_text">Cette application a été développée par Cyriaque Rousselot, Thibault Ayanides, Johan Manuel, Nino Ségala et Georges Le Bellier dans le cadre du cours de PMR de Centrale Lille. Le code source est disponible sur GitHub.</string>
+
 </resources>
