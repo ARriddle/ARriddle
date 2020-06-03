@@ -30,10 +30,16 @@ abstract class BasicActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+            }
+
             R.id.apropos -> {
                 val intent = Intent(this, AproposActivity::class.java)
                 startActivity(intent)
             }
+
 
         }
         return super.onOptionsItemSelected(item)
