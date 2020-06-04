@@ -10,14 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.SettingsActivity"
-            android:label="@string/settings_activity_title"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity
-            android:name=".activities.AproposActivity"
-            android:label="@string/apropos_activity_title"
-            android:parentActivityName=".activities.MainActivity" />
-        <activity
             android:name=".activities.MainActivity"
             android:label="@string/main_activity_title">
             <intent-filter>

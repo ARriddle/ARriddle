@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/settings"
+        android:id="@+id/settingsFragment"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="@string/settings_activity_title" />
     <item
-        android:id="@+id/apropos"
+        android:id="@+id/aproposFragment"
         android:icon="@android:drawable/ic_dialog_info"
         android:title="@string/apropos_activity_title" />
 </menu>

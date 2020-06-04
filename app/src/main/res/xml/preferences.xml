@@ -3,11 +3,11 @@
 
     <SwitchPreferenceCompat
         app:key="notifications"
-        app:title="Enable message notifications" />
+        app:title="Activer les notifications" />
 
     <Preference
         app:key="feedback"
-        app:summary="Report technical issues or suggest new features"
-        app:title="Send feedback" />
+        app:summary="Nous contacter"
+        app:title="Envoyer un feedbdack" />
 
 </PreferenceScreen>
