@@ -3,23 +3,23 @@
 
     <item
         android:id="@+id/mainFragment"
-        android:title="Accueil" />
+        android:title="@string/nav_drawer_home" />
     <item
         android:id="@+id/keypointFragment"
-        android:title="Points clés" />
+        android:title="@string/nav_drawer_keypoints" />
     <item
         android:id="@+id/mapFragment"
-        android:title="Carte" />
+        android:title="@string/nav_drawer_map" />
     <item
         android:id="@+id/leaderboardFragment"
-        android:title="Classement" />
+        android:title="@string/nav_drawer_leaderboard" />
     <item
         android:id="@+id/manageGameFragment"
-        android:title="Gérer la partie" />
+        android:title="@string/nav_drawer_manager" />
     <item
         android:id="@+id/settingsFragment"
-        android:title="Paramètres" />
+        android:title="@string/nav_drawer_settings" />
     <item
         android:id="@+id/aproposFragment"
-        android:title="À propos" />
+        android:title="@string/nav_drawer_apropos" />
 </menu>
