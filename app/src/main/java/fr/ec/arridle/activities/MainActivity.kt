@@ -13,6 +13,5 @@ class MainActivity : BasicActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(false)
         val activityContainer: FrameLayout = findViewById(R.id.layout_container)
         layoutInflater.inflate(R.layout.activity_main, activityContainer, true)
-
     }
 }

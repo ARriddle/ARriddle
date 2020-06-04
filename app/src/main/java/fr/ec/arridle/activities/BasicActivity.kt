@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.navigation.NavigationView
 
 abstract class BasicActivity : AppCompatActivity() {
 
@@ -21,6 +24,10 @@ abstract class BasicActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navView: NavigationView = findViewById(R.id.navView)
+        val navController = this.findNavController(R.id.myNavHostFragment)
+        NavigationUI.setupWithNavController(navView, navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,4 +51,5 @@ abstract class BasicActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

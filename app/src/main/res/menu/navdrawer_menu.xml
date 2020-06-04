@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:title="Accueil" />
+    <item
+        android:id="@+id/keypointFragment"
+        android:title="Points clés" />
+    <item
+        android:id="@+id/mapFragment"
+        android:title="Carte" />
+    <item
+        android:id="@+id/leaderboardFragment"
+        android:title="Classement" />
+    <item
+        android:id="@+id/manageGameFragment"
+        android:title="Gérer la partie" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="Paramètres" />
+    <item
+        android:id="@+id/aproposFragment"
+        android:title="À propos" />
+</menu>
