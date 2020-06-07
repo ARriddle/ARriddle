@@ -21,5 +21,8 @@
     <string name="nav_drawer_manager">Gérer la partie</string>
     <string name="nav_drawer_settings">Paramètres</string>
     <string name="nav_drawer_apropos">À propos</string>
+    <string name="label_current_games">Parties en cours à proximité</string>
+    <string name="label_join_game">Rejoindre une partie</string>
+    <string name="label_create_game">Créer une partie</string>
 
 </resources>
