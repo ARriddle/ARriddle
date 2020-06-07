@@ -9,5 +9,4 @@ data class KeypointProperty (
     @Json(name = "url_cible") val urlCible: String,
     @Json(name = "url_audio") val urlAudio: String,
     @Json(name = "game_id") val gameId: String
-
 )
