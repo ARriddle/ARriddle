@@ -4,19 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import fr.ec.arridle.network.API
-import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.UserProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class ListKeypointsViewModel : ViewModel() {
+class LeaderboardViewModel : ViewModel() {
     // The internal MutableLiveData String that stores the most recent response
-    private val _properties = MutableLiveData<List<KeypointProperty>>()
+    private val _properties = MutableLiveData<List<UserProperty>>()
 
     // The external immutable LiveData for the response String
 
-    val properties: LiveData<List<KeypointProperty>>
+    val properties: LiveData<List<UserProperty>>
         get() = _properties
 
     private var viewModelJob = Job()
@@ -25,18 +25,18 @@ class ListKeypointsViewModel : ViewModel() {
     )
 
     init {
-        getKeypointsProperties()
+        getUserProperties()
     }
 
-    private fun getKeypointsProperties() {
+    private fun getUserProperties() {
         coroutineScope.launch {
-            var getKeypointsDeferred = API.retrofitService.getKeypoints()
-
+            var getPropertiesDeferred = API.retrofitService.getUsers()
             try {
-                val listResult = getKeypointsDeferred.await()
+                val listResult = getPropertiesDeferred.await()
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
+
             }
         }
     }

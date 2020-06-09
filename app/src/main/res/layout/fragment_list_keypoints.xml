@@ -14,31 +14,15 @@
         android:layout_height="match_parent"
         tools:context=".fragments.manager.ListKeypointsFragment">
 
-        <EditText
-            android:id="@+id/keypoints_search_field"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/keypoints_search_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/keypoints_search_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/keypoints_search_field"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/keypoints_search_field" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/keypoints_view"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/keypoints_search_field"
+            app:layout_constraintTop_toBottomOf="parent"
             app:listKeypoints="@{viewModel.properties}"
             tools:listitem="@layout/item_keypoint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
