@@ -71,6 +71,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/label_create_game"
                 android:textSize="18sp"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewCreateGame" />
 
@@ -83,6 +84,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/label_join_game"
                 android:textSize="18sp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardViewJoinGame" />
 
@@ -94,6 +96,7 @@
                 android:fontFamily="@font/roboto"
                 android:text="@string/label_current_games"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
@@ -106,8 +109,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="413dp"
                 android:clipToPadding="false"
+                android:layout_marginTop="48dp"
 
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
