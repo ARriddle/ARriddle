@@ -3,7 +3,7 @@ package fr.ec.arridle.fragments
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import fr.ec.arridle.network.GameAPI
+import fr.ec.arridle.network.API
 import fr.ec.arridle.network.GameProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +30,8 @@ class MainViewModel : ViewModel() {
 
     private fun getGameProperties() {
         coroutineScope.launch {
-            var getPropertiesDeferred = GameAPI.retrofitService.getProperties()
+            var getPropertiesDeferred = API.retrofitService.getGames()
+
             try {
                 val listResult = getPropertiesDeferred.await()
                 _properties.value = listResult

@@ -18,15 +18,18 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface GameAPiService {
+interface APIService {
     @GET("games")
-    fun getProperties(): Deferred<List<GameProperty>>
+    fun getGames(): Deferred<List<GameProperty>>
 
     @GET("keypoints")
     fun getKeypoints(): Deferred<List<KeypointProperty>>
+
+    @GET("users")
+    fun getUsers(): Deferred<List<UserProperty>>
 }
 
-object GameAPI {
-    val retrofitService : GameAPiService by lazy {
-        retrofit.create(GameAPiService::class.java) }
+object API {
+    val retrofitService : APIService by lazy {
+        retrofit.create(APIService::class.java) }
 }
