@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="property"
+            type="fr.ec.arridle.network.GameProperty" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+
+        <TextView
+            android:id="@+id/mars_property_type"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|end"
+            android:adjustViewBounds="true"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:text="@{property.name}" />
+
+    </FrameLayout>
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        app:key="notifications"
+        app:title="Activer les notifications" />
+
+    <Preference
+        app:key="feedback"
+        app:summary="Nous contacter"
+        app:title="Envoyer un feedbdack" />
+
+</PreferenceScreen>

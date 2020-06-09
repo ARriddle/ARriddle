@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mainFragment"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/nav_drawer_home" />
+    <item
+        android:id="@+id/keypointFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="@string/nav_drawer_keypoints" />
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="@string/nav_drawer_map" />
+    <item
+        android:id="@+id/leaderboardFragment"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/nav_drawer_leaderboard" />
+    <item
+        android:id="@+id/manageGameFragment"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/nav_drawer_manager" />
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@android:drawable/ic_menu_preferences"
+        android:title="@string/nav_drawer_settings" />
+    <item
+        android:id="@+id/aproposFragment"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/nav_drawer_apropos" />
+</menu>

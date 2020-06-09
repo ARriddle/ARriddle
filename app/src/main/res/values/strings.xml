@@ -6,4 +6,23 @@
     <string name="settings_activity_title">Paramètres</string>
     <string name="main_activity_title">Accueil</string>
 
+    <!-- textes divers -->
+    <string name="apropos_text">Cette application a été développée par Cyriaque Rousselot, Thibault Ayanides, Johan Manuel, Nino Ségala et Georges Le Bellier dans le cadre du cours de PMR de Centrale Lille. Le code source est disponible sur GitHub.</string>
+
+    <!-- images content description -->
+    <string name="logo_gpl">Logo GPL</string>
+    <string name="logo_arriddle">logo arriddle</string>
+
+    <!-- nav drawer labels -->
+    <string name="nav_drawer_home">Accueil</string>
+    <string name="nav_drawer_keypoints">Points clés</string>
+    <string name="nav_drawer_map">Carte</string>
+    <string name="nav_drawer_leaderboard">Classement</string>
+    <string name="nav_drawer_manager">Gérer la partie</string>
+    <string name="nav_drawer_settings">Paramètres</string>
+    <string name="nav_drawer_apropos">À propos</string>
+    <string name="label_current_games">Parties en cours à proximité</string>
+    <string name="label_join_game">Rejoindre une partie</string>
+    <string name="label_create_game">Créer une partie</string>
+
 </resources>
