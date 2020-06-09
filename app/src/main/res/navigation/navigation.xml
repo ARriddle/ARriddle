@@ -20,5 +20,25 @@
         android:name="fr.ec.arridle.fragments.AproposFragment"
         android:label="@string/apropos_activity_title"
         tools:layout="@layout/fragment_apropos" />
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="fr.ec.arridle.fragments.manager.LeaderboardFragment"
+        android:label="fragment_leaderboard"
+        tools:layout="@layout/fragment_leaderboard" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="fr.ec.arridle.fragments.manager.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/listKeypointsFragment"
+        android:name="fr.ec.arridle.fragments.manager.ListKeypointsFragment"
+        android:label="fragment_list_keypoints"
+        tools:layout="@layout/fragment_list_keypoints" />
+    <fragment
+        android:id="@+id/manageGameFragment"
+        android:name="fr.ec.arridle.fragments.manager.ManageGameFragment"
+        android:label="fragment_manage_game"
+        tools:layout="@layout/fragment_manage_game" />
 
 </navigation>
