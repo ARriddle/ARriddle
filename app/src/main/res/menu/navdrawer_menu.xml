@@ -6,7 +6,7 @@
         android:icon="@android:drawable/ic_menu_compass"
         android:title="@string/nav_drawer_home" />
     <item
-        android:id="@+id/keypointFragment"
+        android:id="@+id/listKeypointsFragment"
         android:icon="@android:drawable/ic_menu_myplaces"
         android:title="@string/nav_drawer_keypoints" />
     <item

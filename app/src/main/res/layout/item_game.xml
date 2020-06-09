@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -12,19 +13,58 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="67dp">
 
 
-        <TextView
-            android:id="@+id/mars_property_type"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom|end"
-            android:adjustViewBounds="true"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:scaleType="fitCenter"
-            android:text="@{property.name}" />
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/gameName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:padding="1dp"
+                    android:text="@{property.name}"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/gameInfo1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:textColor="@color/black"
+                    android:text="@{property.name}"/>
+
+                <TextView
+                    android:id="@+id/gameInfo2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:textColor="@color/black"
+                    android:text="@{property.name}"/>
+
+                <TextView
+                    android:id="@+id/gameInfo3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="1dp"
+                    android:textColor="@color/black"
+                    android:text="@{property.name}"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </FrameLayout>
 </layout>
