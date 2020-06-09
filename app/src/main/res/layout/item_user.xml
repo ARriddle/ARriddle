@@ -8,7 +8,7 @@
 
         <variable
             name="property"
-            type="fr.ec.arridle.network.GameProperty" />
+            type="fr.ec.arridle.network.UserProperty" />
     </data>
 
     <FrameLayout
@@ -30,7 +30,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/gameName"
+                    android:id="@+id/userName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
@@ -40,7 +40,7 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/gameInfo1"
+                    android:id="@+id/userInfo1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
@@ -49,7 +49,7 @@
                     android:text="@{property.name}"/>
 
                 <TextView
-                    android:id="@+id/gameInfo2"
+                    android:id="@+id/userInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
@@ -58,7 +58,7 @@
                     android:text="@{property.name}"/>
 
                 <TextView
-                    android:id="@+id/gameInfo3"
+                    android:id="@+id/userInfo3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"

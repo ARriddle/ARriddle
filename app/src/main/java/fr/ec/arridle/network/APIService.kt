@@ -24,8 +24,18 @@ interface GameAPiService {
             Deferred<List<GameProperty>>
 }
 
+interface UserAPiService {
+    @GET("users")
+    fun getProperties():
+            Deferred<List<UserProperty>>
+}
 
 object GameAPI {
     val retrofitService : GameAPiService by lazy {
         retrofit.create(GameAPiService::class.java) }
+}
+
+object UserAPI {
+    val retrofitService : UserAPiService by lazy {
+        retrofit.create(UserAPiService::class.java) }
 }

@@ -15,8 +15,8 @@ class GameAdapter() :
             GameAdapter.GamePropertyViewHolder>(DiffCallback) {
 
     /**
-     * The MarsPropertyViewHolder constructor takes the binding variable from the associated
-     * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
+     * The GamePropertyViewHolder constructor takes the binding variable from the associated
+     * GridViewItem, which nicely gives it access to the full [GameProperty] information.
      */
     class GamePropertyViewHolder(private var binding: ItemGameBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -29,7 +29,7 @@ class GameAdapter() :
     }
 
     /**
-     * Allows the RecyclerView to determine which items have changed when the [List] of [MarsProperty]
+     * Allows the RecyclerView to determine which items have changed when the [List] of [GameProperty]
      * has been updated.
      */
     companion object DiffCallback : DiffUtil.ItemCallback<GameProperty>() {
