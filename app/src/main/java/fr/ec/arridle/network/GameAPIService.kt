@@ -20,10 +20,11 @@ private val retrofit = Retrofit.Builder()
 
 interface GameAPiService {
     @GET("games")
-    fun getProperties():
-            Deferred<List<GameProperty>>
-}
+    fun getProperties(): Deferred<List<GameProperty>>
 
+    @GET("keypoints")
+    fun getKeypoints(): Deferred<List<KeypointProperty>>
+}
 
 object GameAPI {
     val retrofitService : GameAPiService by lazy {

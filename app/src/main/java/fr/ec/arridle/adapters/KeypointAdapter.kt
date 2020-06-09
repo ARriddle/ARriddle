@@ -6,21 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import fr.ec.arridle.databinding.ItemGameBinding
-import fr.ec.arridle.network.GameProperty
+import fr.ec.arridle.databinding.ItemKeypointBinding
+import fr.ec.arridle.network.KeypointProperty
 
-class GameAdapter() :
-    ListAdapter<GameProperty,
-            GameAdapter.GamePropertyViewHolder>(DiffCallback) {
+class KeypointAdapter() :
+    ListAdapter<KeypointProperty, KeypointAdapter.KeypointPropertyViewHolder>(DiffCallback) {
 
     /**
      * The MarsPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [MarsProperty] information.
      */
-    class GamePropertyViewHolder(private var binding: ItemGameBinding) :
+    class KeypointPropertyViewHolder(private var binding: ItemKeypointBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(gameProperty: GameProperty) {
-            binding.property = gameProperty
+        fun bind(keypointProperty: KeypointProperty) {
+            binding.property = keypointProperty
             // This is important, because it forces the data binding to execute immediately,
             // which allows the RecyclerView to make the correct view size measurements
             binding.executePendingBindings()
@@ -31,12 +30,12 @@ class GameAdapter() :
      * Allows the RecyclerView to determine which items have changed when the [List] of [MarsProperty]
      * has been updated.
      */
-    companion object DiffCallback : DiffUtil.ItemCallback<GameProperty>() {
-        override fun areItemsTheSame(oldItem: GameProperty, newItem: GameProperty): Boolean {
+    companion object DiffCallback : DiffUtil.ItemCallback<KeypointProperty>() {
+        override fun areItemsTheSame(oldItem: KeypointProperty, newItem: KeypointProperty): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: GameProperty, newItem: GameProperty): Boolean {
+        override fun areContentsTheSame(oldItem: KeypointProperty, newItem: KeypointProperty): Boolean {
             return oldItem.id == newItem.id
         }
     }
@@ -47,18 +46,18 @@ class GameAdapter() :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): GamePropertyViewHolder {
-        return GamePropertyViewHolder(ItemGameBinding.inflate(LayoutInflater.from(parent.context)))
+    ): KeypointPropertyViewHolder {
+        return KeypointPropertyViewHolder(ItemKeypointBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     /**
      * Replaces the contents of a view (invoked by the layout manager)
      */
-    override fun onBindViewHolder(holder: GamePropertyViewHolder, position: Int) {
-        val gameProperty = getItem(position)
+    override fun onBindViewHolder(holder: KeypointPropertyViewHolder, position: Int) {
+        val keypointProperty = getItem(position)
         /*holder.itemView.setOnClickListener {
             onClickListener.onClick(gameProperty)
         }*/
-        holder.bind(gameProperty)
+        holder.bind(keypointProperty)
     }
 }
