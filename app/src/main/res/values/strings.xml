@@ -24,5 +24,15 @@
     <string name="label_current_games">Parties en cours à proximité</string>
     <string name="label_join_game">Rejoindre une partie</string>
     <string name="label_create_game">Créer une partie</string>
+    <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
+
+    <!-- layouts: buttons/description -->
+    <string name="label_game_name">Nom de la partie</string>
+    <string name="edit_game_name">MyGame</string>
+    <string name="label_nb_players">Nombre de joueurs maximum</string>
+    <string name="edit_nb_players">10</string>
+    <string name="create_game">Créer la partie</string>
+
+
 
 </resources>

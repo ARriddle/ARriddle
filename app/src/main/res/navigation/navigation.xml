@@ -40,5 +40,10 @@
         android:name="fr.ec.arridle.fragments.manager.ManageGameFragment"
         android:label="fragment_manage_game"
         tools:layout="@layout/fragment_manage_game" />
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="fr.ec.arridle.fragments.manager.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" />
 
 </navigation>

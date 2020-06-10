@@ -30,7 +30,7 @@
                 android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/gameName"
+                    android:id="@+id/gameNameText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
