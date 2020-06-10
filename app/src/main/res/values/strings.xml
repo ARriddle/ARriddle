@@ -27,10 +27,14 @@
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
 
     <!-- layouts: buttons/description -->
-    <string name="label_game_name">Nom de la partie</string>
+    <string name="label_game_name">Nom de la partie*</string>
     <string name="edit_game_name">MyGame</string>
-    <string name="label_nb_players">Nombre de joueurs maximum</string>
+    <string name="label_nb_players">Nombre de joueurs maximum*</string>
     <string name="edit_nb_players">10</string>
+    <string name="label_starting_date">Date de début de la partie*</string>
+    <string name="edit_starting_date">08/12/1998</string>
+    <string name="label_duration">Durée de la partie</string>
+    <string name="edit_duration">2h</string>
     <string name="create_game">Créer la partie</string>
 
 

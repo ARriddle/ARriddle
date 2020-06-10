@@ -6,11 +6,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.manager.CreateGameFragment">
 
+    <EditText
+        android:id="@+id/editStartingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/edit_starting_date"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startingDate"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/edit_duration"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nbPlayers2" />
+
+    <TextView
+        android:id="@+id/startingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/label_starting_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNbPlayers" />
+
+    <TextView
+        android:id="@+id/nbPlayers2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/label_duration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editStartingDate" />
+
     <TextView
         android:id="@+id/gameNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/label_game_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +77,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/edit_game_name"
         android:inputType="textPersonName"
-        android:text="@string/edit_game_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameNameText"
-        android:autofillHints=""
         tools:ignore="LabelFor" />
 
     <TextView
@@ -35,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:fontFamily="@font/roboto"
         android:text="@string/label_nb_players"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,14 +103,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:autofillHints=""
         android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="@string/edit_nb_players"
         android:inputType="textPersonName"
-        android:text="@string/edit_nb_players"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nbPlayers"
-        android:autofillHints=""
-        tools:ignore="LabelFor" />
+        app:layout_constraintTop_toBottomOf="@+id/nbPlayers" />
 
     <Button
         android:id="@+id/buttonCreateGame"
@@ -61,6 +119,7 @@
         android:layout_marginTop="18dp"
         android:text="@string/create_game"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNbPlayers" />
+        app:layout_constraintTop_toBottomOf="@+id/editDuration" />
 </androidx.constraintlayout.widget.ConstraintLayout>
