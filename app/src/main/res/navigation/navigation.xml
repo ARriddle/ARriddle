@@ -9,7 +9,14 @@
         android:id="@+id/mainFragment"
         android:name="fr.ec.arridle.fragments.MainFragment"
         android:label="@string/main_activity_title"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_joinFragment"
+            app:destination="@id/joinFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createGameFragment"
+            app:destination="@id/createGameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="fr.ec.arridle.fragments.SettingsFragment"
@@ -40,5 +47,15 @@
         android:name="fr.ec.arridle.fragments.manager.ManageGameFragment"
         android:label="fragment_manage_game"
         tools:layout="@layout/fragment_manage_game" />
+    <fragment
+        android:id="@+id/joinFragment"
+        android:name="fr.ec.arridle.fragments.user.JoinGameFragment"
+        android:label="fragment_join"
+        tools:layout="@layout/fragment_join_game" />
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="fr.ec.arridle.fragments.manager.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" />
 
 </navigation>

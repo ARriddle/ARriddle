@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.adapters.GameAdapter
 
 import fr.ec.arridle.databinding.FragmentMainBinding
@@ -30,6 +32,16 @@ class MainFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.gameList.adapter = GameAdapter()
+
+        binding.cardViewJoinGame.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToJoinFragment()
+            view?.findNavController()?.navigate(action)
+        }
+
+        binding.cardViewCreateGame.setOnClickListener {
+            val action = MainFragmentDirections.actionMainFragmentToCreateGameFragment()
+            view?.findNavController()?.navigate(action)
+        }
 
         // Inflate the layout for this fragment
         return binding.root
