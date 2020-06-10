@@ -6,21 +6,50 @@
         android:icon="@android:drawable/ic_menu_compass"
         android:title="@string/nav_drawer_home" />
     <item
+        android:id="@+id/gameFragment"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/nav_drawer_game"
+        android:visible="false" />
+    <item
         android:id="@+id/listKeypointsFragment"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="@string/nav_drawer_keypoints" />
+        android:title="@string/nav_drawer_keypoints"
+        android:visible="false" />
+    <item
+        android:id="@+id/listKeypointsUserFragment"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="@string/nav_drawer_keypoints"
+        android:visible="false" />
     <item
         android:id="@+id/mapFragment"
         android:icon="@android:drawable/ic_menu_mapmode"
-        android:title="@string/nav_drawer_map" />
+        android:title="@string/nav_drawer_map"
+        android:visible="false" />
+    <item
+        android:id="@+id/mapUserFragment"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:title="@string/nav_drawer_map"
+        android:visible="false" />
     <item
         android:id="@+id/leaderboardFragment"
         android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:title="@string/nav_drawer_leaderboard" />
+        android:title="@string/nav_drawer_leaderboard"
+        android:visible="false" />
+    <item
+        android:id="@+id/leaderboardUserFragment"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="@string/nav_drawer_leaderboard"
+        android:visible="false" />
     <item
         android:id="@+id/manageGameFragment"
         android:icon="@android:drawable/ic_menu_edit"
-        android:title="@string/nav_drawer_manager" />
+        android:title="@string/nav_drawer_manager"
+        android:visible="false" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="@string/nav_drawer_profile"
+        android:visible="false" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@android:drawable/ic_menu_preferences"

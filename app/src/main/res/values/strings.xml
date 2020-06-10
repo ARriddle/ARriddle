@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">ARriddle</string>
     <!-- Titre des activités (affiché dans le menu et dans la actionbar-->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="apropos_activity_title">À propos</string>
     <string name="settings_activity_title">Paramètres</string>
     <string name="main_activity_title">Accueil</string>
+
 
     <!-- textes divers -->
     <string name="apropos_text">Cette application a été développée par Cyriaque Rousselot, Thibault Ayanides, Johan Manuel, Nino Ségala et Georges Le Bellier dans le cadre du cours de PMR de Centrale Lille. Le code source est disponible sur GitHub.</string>
@@ -21,6 +21,10 @@
     <string name="nav_drawer_manager">Gérer la partie</string>
     <string name="nav_drawer_settings">Paramètres</string>
     <string name="nav_drawer_apropos">À propos</string>
+    <string name="nav_drawer_profile">Profil partie</string>
+    <string name="nav_drawer_game">"Détails de la partie "</string>
+
+    <!-- -label accueil -->
     <string name="label_current_games">Parties en cours à proximité</string>
     <string name="label_join_game">Rejoindre une partie</string>
     <string name="label_create_game">Créer une partie</string>
