@@ -42,6 +42,10 @@
     <string name="distance_keypoint">Distance</string>
     <string name="validation_number_keypoints">Nombre de Validation</string>
     <string name="chess_image_content_description" />
+    <string name="game_name">Nom de la partie</string>
+    <string name="cup_content_description">A cup</string>
+    <string name="keypoint_title">Points-clefs</string>
+    <string name="chest_content_description">A chest</string>
 
 
 </resources>
