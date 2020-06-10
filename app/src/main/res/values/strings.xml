@@ -46,6 +46,8 @@
     <string name="cup_content_description">A cup</string>
     <string name="keypoint_title">Points-clefs</string>
     <string name="chest_content_description">A chest</string>
+    <string name="users_list_text">Liste des utilisateurs</string>
+    <string name="send_message_manage">ENVOYER </string>
 
 
 </resources>

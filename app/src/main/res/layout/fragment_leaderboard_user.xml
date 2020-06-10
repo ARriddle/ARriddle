@@ -24,6 +24,7 @@
         android:id="@+id/leaderboardCup"
         android:layout_width="129dp"
         android:layout_height="121dp"
+        android:layout_marginTop="32dp"
         android:contentDescription="@string/cup_content_description"
         android:src="@drawable/ic_trophy_by_freepik"
         app:layout_constraintEnd_toEndOf="parent"
