@@ -1,13 +1,17 @@
 package fr.ec.arridle.adapters
 
+import android.R
+import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import fr.ec.arridle.databinding.ItemGameBinding
 import fr.ec.arridle.network.GameProperty
+import kotlin.random.Random
+
 
 class GameAdapter() :
     ListAdapter<GameProperty,
@@ -56,9 +60,18 @@ class GameAdapter() :
      */
     override fun onBindViewHolder(holder: GamePropertyViewHolder, position: Int) {
         val gameProperty = getItem(position)
+
         /*holder.itemView.setOnClickListener {
             onClickListener.onClick(gameProperty)
         }*/
+        /**
+         *  TODO "Implement random cardview background color"
+         */
+        /* val card = holder.itemView.findViewById(R.id.) as CardView
         holder.bind(gameProperty)
+        val rnd = Random(100)
+        var currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+        holder.itemView.setBackgroundColor(currentColor)*/
+
     }
 }

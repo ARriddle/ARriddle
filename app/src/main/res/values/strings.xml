@@ -32,7 +32,12 @@
     <string name="label_nb_players">Nombre de joueurs maximum</string>
     <string name="edit_nb_players">10</string>
     <string name="create_game">Créer la partie</string>
-
+    <string name="map_title">Map</string>
+    <string name="create_keypoint">Créer un point clef</string>
+    <string name="keypoint_name">"Nom du point d'interêt "</string>
+    <string name="distance_keypoint">Distance</string>
+    <string name="validation_number_keypoints">Nombre de Validation</string>
+    <string name="chess_image_content_description" />
 
 
 </resources>

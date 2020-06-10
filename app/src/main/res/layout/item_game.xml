@@ -17,6 +17,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/item_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -24,6 +25,7 @@
             app:cardElevation="6dp">
 
             <LinearLayout
+                android:id="@+id/item_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -45,8 +47,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{property.name}"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/gameInfo2"
@@ -54,8 +56,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{property.name}"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/gameInfo3"
@@ -63,8 +65,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{property.name}"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
