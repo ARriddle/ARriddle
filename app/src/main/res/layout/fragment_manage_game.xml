@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/leaderboard_management_text"
+        style="@style/SubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,6 +20,7 @@
 
     <TextView
         android:id="@+id/user_management_text"
+        style="@style/SubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -28,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/leaderboard_management_text"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.386" />
 
     <TextView
         android:id="@+id/message_management_text"
@@ -40,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_management_text"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -56,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/message_management_text"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <Button
         android:id="@+id/button"
@@ -65,9 +67,10 @@
         android:text="@string/send_message_manage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -79,7 +82,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.896" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -92,4 +95,15 @@
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.881" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="243dp"
+        android:layout_height="70dp"
+        android:text="Terminer la partie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
