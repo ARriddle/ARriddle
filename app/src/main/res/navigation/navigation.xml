@@ -50,5 +50,9 @@
         android:name="fr.ec.arridle.fragments.user.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/manageUserFragment"
+        android:name="fr.ec.arridle.fragments.manager.ManageUserFragment"
+        android:label="ManageUserFragment" />
 
 </navigation>
