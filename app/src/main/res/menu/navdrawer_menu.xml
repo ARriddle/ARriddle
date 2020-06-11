@@ -32,7 +32,7 @@
 
     <!-- test layout -->
     <item
-        android:id="@+id/createGameFragment"
+        android:id="@+id/profileFragment"
         android:icon="@android:drawable/ic_menu_edit"
         android:title="@string/nav_drawer_test" />
 </menu>

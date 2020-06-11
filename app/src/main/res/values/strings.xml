@@ -36,6 +36,7 @@
     <string name="label_duration">Durée de la partie</string>
     <string name="edit_duration">HH:MM:SS</string>
     <string name="create_game">Créer la partie</string>
+
     <string name="map_title">Map</string>
     <string name="create_keypoint">Créer un point clef</string>
     <string name="keypoint_name">"Nom du point d'interêt "</string>
@@ -48,6 +49,14 @@
     <string name="chest_content_description">A chest</string>
     <string name="users_list_text">Liste des utilisateurs</string>
     <string name="send_message_manage">ENVOYER </string>
+
+    <string name="label_game_number"> Partie : </string>
+    <string name="label_profile_image"> profile image </string>
+    <string name="label_pseudo"> Pseudo : </string>
+    <string name="label_score"> Score : </string>
+    <string name="label_rank"> Classement : </string>
+    <string name="label_received_messages"> Messages : </string>
+    <string name="label_logout"> Se déconnecter </string>
 
 
 </resources>
