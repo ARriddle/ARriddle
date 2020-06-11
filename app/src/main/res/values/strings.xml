@@ -32,9 +32,9 @@
     <string name="label_nb_players">Nombre de joueurs maximum*</string>
     <string name="edit_nb_players">10</string>
     <string name="label_starting_date">Date de début de la partie*</string>
-    <string name="edit_starting_date">08/12/1998</string>
+    <string name="edit_starting_date">DD-MM-YYYY</string>
     <string name="label_duration">Durée de la partie</string>
-    <string name="edit_duration">2h</string>
+    <string name="edit_duration">HH:MM:SS</string>
     <string name="create_game">Créer la partie</string>
     <string name="map_title">Map</string>
     <string name="create_keypoint">Créer un point clef</string>
