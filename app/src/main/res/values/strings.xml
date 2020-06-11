@@ -57,6 +57,15 @@
     <string name="label_rank"> Classement : </string>
     <string name="label_received_messages"> Messages : </string>
     <string name="label_logout"> Se déconnecter </string>
+    <string name="liste_des_activit_es">Liste des activitées</string>
+    <string name="classement">Classement</string>
+    <string name="valeur_de_classement">valeur de classement</string>
+    <string name="ponits_number">nbre de points</string>
+    <string name="points">Points</string>
+    <string name="act">Résoudre l\'activité</string>
+    <string name="hunt">Chasser</string>
+    <string name="compass_content_description">A compass</string>
+    <string name="chest_open_content_description">An open chest with treasures</string>
 
 
 </resources>
