@@ -9,7 +9,17 @@
         android:id="@+id/mainFragment"
         android:name="fr.ec.arridle.fragments.MainFragment"
         android:label="@string/main_activity_title"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_joinFragment"
+            app:destination="@id/joinFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createGameFragment"
+            app:destination="@id/createGameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="fr.ec.arridle.fragments.SettingsFragment"
@@ -34,11 +44,101 @@
         android:id="@+id/listKeypointsFragment"
         android:name="fr.ec.arridle.fragments.manager.ListKeypointsFragment"
         android:label="fragment_list_keypoints"
-        tools:layout="@layout/fragment_list_keypoints" />
+        tools:layout="@layout/fragment_list_keypoints" >
+        <action
+            android:id="@+id/action_listKeypointsFragment_to_createKeypointFragment"
+            app:destination="@id/createKeypointFragment" />
+    </fragment>
     <fragment
         android:id="@+id/manageGameFragment"
         android:name="fr.ec.arridle.fragments.manager.ManageGameFragment"
         android:label="fragment_manage_game"
-        tools:layout="@layout/fragment_manage_game" />
+        tools:layout="@layout/fragment_manage_game" >
+        <action
+            android:id="@+id/action_manageGameFragment_to_listUsersFragment"
+            app:destination="@id/listUsersFragment" />
+        <action
+            android:id="@+id/action_manageGameFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/joinFragment"
+        android:name="fr.ec.arridle.fragments.user.JoinGameFragment"
+        android:label="fragment_join"
+        tools:layout="@layout/fragment_join_game" >
+        <action
+            android:id="@+id/action_joinFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGameFragment"
+        android:name="fr.ec.arridle.fragments.manager.CreateGameFragment"
+        android:label="fragment_create_game"
+        tools:layout="@layout/fragment_create_game" >
+        <action
+            android:id="@+id/action_createGameFragment_to_manageGameFragment"
+            app:destination="@id/manageGameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentManageUser"
+        android:name="fr.ec.arridle.fragments.manager.ManageUserFragment"
+        android:label="fragment_manage_user"
+        tools:layout="@layout/fragment_manage_user" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="fr.ec.arridle.fragments.user.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_leaderboardFragment2"
+            app:destination="@id/leaderboardUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listUsersFragment"
+        android:name="fr.ec.arridle.fragments.manager.ListUsersFragment"
+        android:label="fragment_list_users"
+        tools:layout="@layout/fragment_list_users" >
+        <action
+            android:id="@+id/action_listUsersFragment_to_fragment_manage_user"
+            app:destination="@id/fragmentManageUser" />
+    </fragment>
+    <fragment
+        android:id="@+id/keypointFragment"
+        android:name="fr.ec.arridle.fragments.user.KeypointFragment"
+        android:label="fragment_show_keypoint"
+        tools:layout="@layout/fragment_show_keypoint" />
+    <fragment
+        android:id="@+id/createKeypointFragment"
+        android:name="fr.ec.arridle.fragments.manager.CreateKeypointFragment"
+        android:label="fragment_create_keypoint"
+        tools:layout="@layout/fragment_create_keypoint" />
+    <fragment
+        android:id="@+id/listKeypointsUserFragment"
+        android:name="fr.ec.arridle.fragments.user.ListKeypointsFragment"
+        android:label="fragment_list_keypoints_user"
+        tools:layout="@layout/fragment_list_keypoints_user" >
+        <action
+            android:id="@+id/action_listKeypointsFragmentUser_to_keypointFragment"
+            app:destination="@id/keypointFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapUserFragment"
+        android:name="fr.ec.arridle.fragments.user.MapFragment"
+        android:label="fragment_map_user"
+        tools:layout="@layout/fragment_map_user" />
+    <fragment
+        android:id="@+id/leaderboardUserFragment"
+        android:name="fr.ec.arridle.fragments.user.LeaderboardFragment"
+        android:label="fragment_leaderboard_user"
+        tools:layout="@layout/fragment_leaderboard_user" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="fr.ec.arridle.fragments.user.GameFragment"
+        android:label="fragment_show_game"
+        tools:layout="@layout/fragment_show_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
 </navigation>

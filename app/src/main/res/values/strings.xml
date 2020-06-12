@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">ARriddle</string>
     <!-- Titre des activités (affiché dans le menu et dans la actionbar-->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="apropos_activity_title">À propos</string>
     <string name="settings_activity_title">Paramètres</string>
     <string name="main_activity_title">Accueil</string>
+
 
     <!-- textes divers -->
     <string name="apropos_text">Cette application a été développée par Cyriaque Rousselot, Thibault Ayanides, Johan Manuel, Nino Ségala et Georges Le Bellier dans le cadre du cours de PMR de Centrale Lille. Le code source est disponible sur GitHub.</string>
@@ -21,8 +21,37 @@
     <string name="nav_drawer_manager">Gérer la partie</string>
     <string name="nav_drawer_settings">Paramètres</string>
     <string name="nav_drawer_apropos">À propos</string>
+    <string name="nav_drawer_profile">Profil partie</string>
+    <string name="nav_drawer_game">"Détails de la partie "</string>
+
+    <!-- -label accueil -->
     <string name="label_current_games">Parties en cours à proximité</string>
     <string name="label_join_game">Rejoindre une partie</string>
     <string name="label_create_game">Créer une partie</string>
+    <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
+
+    <!-- layouts: buttons/description -->
+    <string name="label_game_name">Nom de la partie*</string>
+    <string name="edit_game_name">MyGame</string>
+    <string name="label_nb_players">Nombre de joueurs maximum*</string>
+    <string name="edit_nb_players">10</string>
+    <string name="label_starting_date">Date de début de la partie*</string>
+    <string name="edit_starting_date">DD-MM-YYYY</string>
+    <string name="label_duration">Durée de la partie</string>
+    <string name="edit_duration">HH:MM:SS</string>
+    <string name="create_game">Créer la partie</string>
+    <string name="map_title">Map</string>
+    <string name="create_keypoint">Créer un point clef</string>
+    <string name="keypoint_name">"Nom du point d'interêt "</string>
+    <string name="distance_keypoint">Distance</string>
+    <string name="validation_number_keypoints">Nombre de Validation</string>
+    <string name="chess_image_content_description" />
+    <string name="game_name">Nom de la partie</string>
+    <string name="cup_content_description">A cup</string>
+    <string name="keypoint_title">Points-clefs</string>
+    <string name="chest_content_description">A chest</string>
+    <string name="users_list_text">Liste des utilisateurs</string>
+    <string name="send_message_manage">ENVOYER </string>
+
 
 </resources>
