@@ -1,19 +1,15 @@
 package fr.ec.arridle.adapters
 
-import android.R
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import fr.ec.arridle.databinding.ItemGameBinding
 import fr.ec.arridle.network.GameProperty
-import kotlin.random.Random
 
 
-class GameAdapter() :
+class GameAdapter :
     ListAdapter<GameProperty,
             GameAdapter.GamePropertyViewHolder>(DiffCallback) {
 

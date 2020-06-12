@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.adapters.GameAdapter
 
 import fr.ec.arridle.databinding.FragmentMainBinding
@@ -27,7 +26,7 @@ class MainFragment : Fragment() {
         val binding = FragmentMainBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import fr.ec.arridle.adapters.GameAdapter
 import fr.ec.arridle.adapters.KeypointAdapter
 import fr.ec.arridle.databinding.FragmentListKeypointsBinding
 
@@ -22,7 +21,7 @@ class ListKeypointsFragment : Fragment() {
         val binding = FragmentListKeypointsBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.keypointsView.adapter = KeypointAdapter()
 
