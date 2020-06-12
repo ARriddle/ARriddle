@@ -58,10 +58,4 @@
         android:id="@+id/aproposFragment"
         android:icon="@android:drawable/ic_menu_info_details"
         android:title="@string/nav_drawer_apropos" />
-
-    <!-- test layout -->
-    <item
-        android:id="@+id/createGameFragment"
-        android:icon="@android:drawable/ic_menu_edit"
-        android:title="@string/nav_drawer_test" />
 </menu>

@@ -64,11 +64,12 @@ class GameAdapter() :
         /*holder.itemView.setOnClickListener {
             onClickListener.onClick(gameProperty)
         }*/
+        holder.bind(gameProperty)
+
         /**
          *  TODO "Implement random cardview background color"
          */
         /* val card = holder.itemView.findViewById(R.id.) as CardView
-        holder.bind(gameProperty)
         val rnd = Random(100)
         var currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         holder.itemView.setBackgroundColor(currentColor)*/
