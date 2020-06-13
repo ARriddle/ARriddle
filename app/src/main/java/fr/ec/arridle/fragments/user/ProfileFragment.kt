@@ -1,11 +1,17 @@
 package fr.ec.arridle.fragments.user
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import fr.ec.arridle.R
+import fr.ec.arridle.activities.MainActivity
+import fr.ec.arridle.databinding.FragmentJoinGameBinding
+import fr.ec.arridle.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
@@ -13,8 +19,25 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val binding = DataBindingUtil.inflate<FragmentProfileBinding>(
+            inflater,
+            R.layout.fragment_profile, container, false
+        )
+        (activity as MainActivity).createNavDrawer()
+
+        binding.buttonLogout.setOnClickListener {
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+            with (sharedPref?.edit()) {
+                this?.putString("status",null)
+                this?.apply()
+                val action = ProfileFragmentDirections.actionProfileFragmentToMainFragment()
+                view?.findNavController()?.navigate(action)
+
+            }
+        }
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return binding.root
     }
 
 }
