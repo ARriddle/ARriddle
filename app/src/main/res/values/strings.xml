@@ -80,6 +80,10 @@
     <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
     <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
     <string name="content_description_avatar">avatar de profil</string>
+    <string name="list_keypoint">Liste des points d\'intérêt</string>
+    <string name="label_rank">Classement</string>
+    <string name="label_hunt">Chasser</string>
+    <string name="label_next_keypoint">Prochain point clef</string>
 
 
 </resources>
