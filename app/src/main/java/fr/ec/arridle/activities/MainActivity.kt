@@ -25,29 +25,7 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupWithNavController(navView, navController)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
-
-        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
-        when (sharedPref.getString("status", null)) {
-            "manager" -> {
-                navView.menu.findItem(R.id.mainFragment)?.isVisible = false
-                navView.menu.findItem(R.id.listKeypointsFragment)?.isVisible = true
-                navView.menu.findItem(R.id.mapFragment)?.isVisible = true
-                navView.menu.findItem(R.id.leaderboardFragment)?.isVisible = true
-                navView.menu.findItem(R.id.manageGameFragment)?.isVisible = true
-
-            }
-            "user" -> {
-                navView.menu.findItem(R.id.mainFragment)?.isVisible = true
-                navView.menu.findItem(R.id.gameFragment)?.isVisible = true
-                navView.menu.findItem(R.id.listKeypointsUserFragment)?.isVisible = true
-                navView.menu.findItem(R.id.mapUserFragment)?.isVisible = true
-                navView.menu.findItem(R.id.leaderboardUserFragment)?.isVisible = true
-                navView.menu.findItem(R.id.profileFragment)?.isVisible = true
-            }
-            else -> {
-
-            }
-        }
+        createNavDrawer()
 
     }
 
@@ -71,4 +49,51 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
+    fun createNavDrawer(){
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        when (sharedPref.getString("status", null)) {
+            "manager" -> {
+                navView.menu.findItem(R.id.mainFragment)?.isVisible = false
+                navView.menu.findItem(R.id.gameFragment)?.isVisible = false
+                navView.menu.findItem(R.id.listKeypointsFragment)?.isVisible = true
+                navView.menu.findItem(R.id.listKeypointsUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.mapFragment)?.isVisible = true
+                navView.menu.findItem(R.id.mapUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.leaderboardFragment)?.isVisible = true
+                navView.menu.findItem(R.id.leaderboardUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.manageGameFragment)?.isVisible = true
+                navView.menu.findItem(R.id.profileFragment)?.isVisible = false
+                navView.menu.findItem(R.id.settingsFragment)?.isVisible = true
+                navView.menu.findItem(R.id.aproposFragment)?.isVisible = true
+            }
+            "user" -> {
+                navView.menu.findItem(R.id.mainFragment)?.isVisible = false
+                navView.menu.findItem(R.id.gameFragment)?.isVisible = true
+                navView.menu.findItem(R.id.listKeypointsFragment)?.isVisible = false
+                navView.menu.findItem(R.id.listKeypointsUserFragment)?.isVisible = true
+                navView.menu.findItem(R.id.mapFragment)?.isVisible = false
+                navView.menu.findItem(R.id.mapUserFragment)?.isVisible = true
+                navView.menu.findItem(R.id.leaderboardFragment)?.isVisible = false
+                navView.menu.findItem(R.id.leaderboardUserFragment)?.isVisible = true
+                navView.menu.findItem(R.id.manageGameFragment)?.isVisible = false
+                navView.menu.findItem(R.id.profileFragment)?.isVisible = true
+                navView.menu.findItem(R.id.settingsFragment)?.isVisible = true
+                navView.menu.findItem(R.id.aproposFragment)?.isVisible = true
+            }
+            else -> {
+                navView.menu.findItem(R.id.mainFragment)?.isVisible = true
+                navView.menu.findItem(R.id.gameFragment)?.isVisible = false
+                navView.menu.findItem(R.id.listKeypointsFragment)?.isVisible = false
+                navView.menu.findItem(R.id.listKeypointsUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.mapFragment)?.isVisible = false
+                navView.menu.findItem(R.id.mapUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.leaderboardFragment)?.isVisible = false
+                navView.menu.findItem(R.id.leaderboardUserFragment)?.isVisible = false
+                navView.menu.findItem(R.id.manageGameFragment)?.isVisible = false
+                navView.menu.findItem(R.id.profileFragment)?.isVisible = false
+                navView.menu.findItem(R.id.settingsFragment)?.isVisible = true
+                navView.menu.findItem(R.id.aproposFragment)?.isVisible = true
+            }
+        }
+    }
 }
