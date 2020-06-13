@@ -49,6 +49,8 @@
     <string name="label_write_message_edittext">Écrivez votre message</string>
     <string name="label_id_game">Identifiant de la partie</string>
     <string name="label_join_button">Rejoindre</string>
+    <string name="label_list_users">Liste des utilisateurs</string>
+
 
 
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
