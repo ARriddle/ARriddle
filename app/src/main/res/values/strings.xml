@@ -47,6 +47,9 @@
     <string name="label_send_message_manage">ENVOYER </string>
     <string name="label_send_message_label">Envoyer un message au groupe</string>
     <string name="label_write_message_edittext">Écrivez votre message</string>
+    <string name="label_id_game">Identifiant de la partie</string>
+    <string name="label_join_button">Rejoindre</string>
+
 
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
 
@@ -62,5 +65,8 @@
     <string name="edit_starting_date">DD-MM-YYYY</string>
     <string name="label_duration">Durée de la partie</string>
     <string name="edit_duration">HH:MM:SS</string>
+
+
+    <string name="hint_id_game">FT56H8UI</string>
 
 </resources>
