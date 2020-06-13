@@ -30,7 +30,7 @@ class ListKeypointsViewModel : ViewModel() {
 
     private fun getKeypointsProperties() {
         coroutineScope.launch {
-            var getKeypointsDeferred = API.retrofitService.getKeypoints()
+            val getKeypointsDeferred = API.retrofitService.getKeypointsAsync()
 
             try {
                 val listResult = getKeypointsDeferred.await()

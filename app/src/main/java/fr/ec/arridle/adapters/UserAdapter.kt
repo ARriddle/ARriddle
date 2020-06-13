@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.ec.arridle.databinding.ItemUserBinding
 import fr.ec.arridle.network.UserProperty
 
-class UserAdapter() :
+class UserAdapter:
     ListAdapter<UserProperty,
             UserAdapter.UserPropertyViewHolder>(DiffCallback) {
 

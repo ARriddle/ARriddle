@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="@string/users_list_text"
+        android:text="@string/label_user_list"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -35,7 +35,7 @@
         style="@style/Title_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Envoyer un message au groupe"
+        android:text="@string/label_send_message_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +46,10 @@
         android:id="@+id/editTextTextMultiLine"
         android:layout_width="257dp"
         android:layout_height="143dp"
-        android:autoText="true"
         android:autofillHints=""
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Write your message"
+        android:hint="@string/label_write_message_edittext"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +61,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/send_message_manage"
+        android:text="@string/label_send_message_manage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +78,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.878" />
+        app:layout_constraintVertical_bias="0.878"
+        android:contentDescription="@string/content_description_leaderboard" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -91,5 +91,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        app:layout_constraintVertical_bias="0.881"
+        android:contentDescription="@string/content_description_list_users" />
 </androidx.constraintlayout.widget.ConstraintLayout>

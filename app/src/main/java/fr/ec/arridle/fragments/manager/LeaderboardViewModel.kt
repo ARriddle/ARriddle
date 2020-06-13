@@ -30,7 +30,7 @@ class LeaderboardViewModel : ViewModel() {
 
     private fun getUserProperties() {
         coroutineScope.launch {
-            var getPropertiesDeferred = API.retrofitService.getUsers()
+            val getPropertiesDeferred = API.retrofitService.getUsersAsync()
             try {
                 val listResult = getPropertiesDeferred.await()
                 _properties.value = listResult

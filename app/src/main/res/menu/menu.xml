@@ -3,9 +3,9 @@
     <item
         android:id="@+id/settingsFragment"
         android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/settings_activity_title" />
+        android:title="@string/title_settings_fragment" />
     <item
         android:id="@+id/aproposFragment"
         android:icon="@android:drawable/ic_dialog_info"
-        android:title="@string/apropos_activity_title" />
+        android:title="@string/title_apropos_fragment" />
 </menu>

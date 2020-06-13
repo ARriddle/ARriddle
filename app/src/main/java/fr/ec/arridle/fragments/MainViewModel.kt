@@ -30,7 +30,7 @@ class MainViewModel : ViewModel() {
 
     private fun getGameProperties() {
         coroutineScope.launch {
-            var getPropertiesDeferred = API.retrofitService.getGames()
+            val getPropertiesDeferred = API.retrofitService.getGamesAsync()
 
             try {
                 val listResult = getPropertiesDeferred.await()

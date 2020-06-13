@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="fr.ec.arridle.fragments.MainFragment"
-        android:label="@string/main_activity_title"
+        android:label="@string/title_main_fragment"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_joinFragment"
@@ -23,12 +23,12 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="fr.ec.arridle.fragments.SettingsFragment"
-        android:label="@string/settings_activity_title"
+        android:label="@string/title_settings_fragment"
         tools:layout="@xml/preferences"/>
     <fragment
         android:id="@+id/aproposFragment"
         android:name="fr.ec.arridle.fragments.AproposFragment"
-        android:label="@string/apropos_activity_title"
+        android:label="@string/title_apropos_fragment"
         tools:layout="@layout/fragment_apropos" />
     <fragment
         android:id="@+id/leaderboardFragment"

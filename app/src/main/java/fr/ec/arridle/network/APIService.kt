@@ -20,13 +20,13 @@ private val retrofit = Retrofit.Builder()
 
 interface APIService {
     @GET("games")
-    fun getGames(): Deferred<List<GameProperty>>
+    fun getGamesAsync(): Deferred<List<GameProperty>>
 
     @GET("keypoints")
-    fun getKeypoints(): Deferred<List<KeypointProperty>>
+    fun getKeypointsAsync(): Deferred<List<KeypointProperty>>
 
     @GET("users")
-    fun getUsers(): Deferred<List<UserProperty>>
+    fun getUsersAsync(): Deferred<List<UserProperty>>
 }
 
 object API {

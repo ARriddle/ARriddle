@@ -3,10 +3,12 @@ package fr.ec.arridle.network
 import com.squareup.moshi.Json
 
 data class KeypointProperty (
-    val id: String,
+    val id: Int,
     val name: String,
-    @Json(name = "points") val nbPoints: Double,
+    val points: Int,
     @Json(name = "url_cible") val urlCible: String,
-    @Json(name = "url_audio") val urlAudio: String,
+    val latitude: Double,
+    val longitude: Double,
+    @Json(name = "users_solvers") val usersSolvers: List<UserProperty>,
     @Json(name = "game_id") val gameId: String
 )

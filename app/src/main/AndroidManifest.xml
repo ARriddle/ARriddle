@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/main_activity_title">
+            android:label="@string/title_main_fragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
