@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import fr.ec.arridle.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,6 +29,13 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupWithNavController(navView, navController)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.gameFragment) {
+                toolbar.title = destination.label
+                toolbar.navigationIcon = null
+            }
+        }
 
     }
 
@@ -51,6 +59,8 @@ class MainActivity : AppCompatActivity() {
                 || super.onOptionsItemSelected(item)
     }
 
+
+    // Deal with keyboard
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if (currentFocus != null) {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
@@ -59,7 +69,8 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    fun createNavDrawer(){
+
+    fun createNavDrawer() {
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
         when (sharedPref.getString("status", null)) {
             "manager" -> {

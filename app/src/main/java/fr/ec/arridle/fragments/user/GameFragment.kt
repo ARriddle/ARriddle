@@ -16,7 +16,9 @@ class GameFragment : Fragment() {
     ): View? {
         (activity as MainActivity).createNavDrawer()
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_show_game, container, false)
     }
+
 
 }

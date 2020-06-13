@@ -18,7 +18,9 @@
             app:destination="@id/createGameFragment" />
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -68,7 +70,9 @@
         tools:layout="@layout/fragment_join_game" >
         <action
             android:id="@+id/action_joinFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/createGameFragment"
@@ -139,6 +143,12 @@
         <action
             android:id="@+id/action_gameFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_listKeypointsUserFragment"
+            app:destination="@id/listKeypointsUserFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_leaderboardUserFragment"
+            app:destination="@id/leaderboardUserFragment" />
     </fragment>
 
 </navigation>
