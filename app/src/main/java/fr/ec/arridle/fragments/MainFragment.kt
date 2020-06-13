@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.adapters.GameAdapter
 import fr.ec.arridle.databinding.FragmentMainBinding
 
@@ -23,6 +24,8 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding = FragmentMainBinding.inflate(inflater)
+
+        (activity as MainActivity).createNavDrawer()
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
@@ -44,4 +47,5 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
+
 }

@@ -18,6 +18,9 @@
     <string name="content_description_list_users">Image liste des utilisateurs</string>
     <string name="content_description_chest">Un coffre</string>
     <string name="content_description_cup">Une coupe</string>
+    <string name="content_description_compass">Un compas</string>
+    <string name="content_description_avatar">avatar de profil</string>
+
 
 
 
@@ -47,6 +50,20 @@
     <string name="label_send_message_manage">ENVOYER </string>
     <string name="label_send_message_label">Envoyer un message au groupe</string>
     <string name="label_write_message_edittext">Écrivez votre message</string>
+    <string name="label_id_game">Identifiant de la partie</string>
+    <string name="label_join_button">Rejoindre</string>
+    <string name="label_list_users">Liste des utilisateurs</string>
+    <string name="label_game_number">Id partie</string>
+    <string name="label_pseudo">Pseudo</string>
+    <string name="label_score">Score</string>
+    <string name="label_received_messages">Messages reçus</string>
+    <string name="label_logout">Se déconnecter</string>
+    <string name="label_rank">Classement</string>
+    <string name="label_hunt">Chasser</string>
+    <string name="label_next_keypoint">Prochain point clef</string>
+    <string name="label_list_keypoint">Liste des points d\'intérêt</string>
+
+
 
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
 
@@ -62,5 +79,14 @@
     <string name="edit_starting_date">DD-MM-YYYY</string>
     <string name="label_duration">Durée de la partie</string>
     <string name="edit_duration">HH:MM:SS</string>
+
+
+    <string name="hint_id_game">FT56H8UI</string>
+
+    <!-- errors -->
+    <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
+    <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
+
+
 
 </resources>

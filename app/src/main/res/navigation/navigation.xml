@@ -18,7 +18,13 @@
             app:destination="@id/createGameFragment" />
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="arg1"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -68,7 +74,9 @@
         tools:layout="@layout/fragment_join_game" >
         <action
             android:id="@+id/action_joinFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/createGameFragment"
@@ -90,8 +98,11 @@
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_leaderboardFragment2"
-            app:destination="@id/leaderboardUserFragment" />
+            android:id="@+id/action_profileFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/navigation"
+            app:popUpToInclusive="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/listUsersFragment"
@@ -139,6 +150,16 @@
         <action
             android:id="@+id/action_gameFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_listKeypointsUserFragment"
+            app:destination="@id/listKeypointsUserFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_leaderboardUserFragment"
+            app:destination="@id/leaderboardUserFragment" />
+        <argument
+            android:name="arg1"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
 </navigation>
