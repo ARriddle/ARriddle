@@ -4,6 +4,9 @@ import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
@@ -47,6 +50,14 @@ class MainActivity : AppCompatActivity() {
             this.findNavController(R.id.myNavHostFragment)
         )
                 || super.onOptionsItemSelected(item)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     fun createNavDrawer(){
@@ -96,4 +107,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }
