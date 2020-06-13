@@ -1,6 +1,5 @@
 package fr.ec.arridle.fragments.user
 
-import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -60,10 +59,10 @@ class JoinGameFragment : Fragment() {
                     view?.findNavController()?.navigate(action)
                 }
                 else {
-                    binding.textError.text = "ERREUR : l'identifiant saisi n'existe pas"
+                    binding.textError.text = getString(R.string.error_game_id_doesnt_exist)
                 }
             } else {
-                binding.textError.text = "ERREUR : un identifiant est composé de 8 caractères alphanumériques"
+                binding.textError.text = getString(R.string.error_game_id_format)
             }
         }
 

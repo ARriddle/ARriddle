@@ -69,4 +69,8 @@
 
     <string name="hint_id_game">FT56H8UI</string>
 
+    <!-- errors -->
+    <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
+    <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
+
 </resources>
