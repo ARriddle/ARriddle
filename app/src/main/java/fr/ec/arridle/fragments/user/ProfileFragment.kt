@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import fr.ec.arridle.R
 import fr.ec.arridle.activities.MainActivity
-import fr.ec.arridle.databinding.FragmentJoinGameBinding
 import fr.ec.arridle.databinding.FragmentProfileBinding
+
 
 class ProfileFragment : Fragment() {
 
@@ -28,11 +28,11 @@ class ProfileFragment : Fragment() {
         binding.buttonLogout.setOnClickListener {
             val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
             with (sharedPref?.edit()) {
-                this?.putString("status",null)
+                this?.putString("status", null)
                 this?.apply()
-                val action = ProfileFragmentDirections.actionProfileFragmentToMainFragment()
-                view?.findNavController()?.navigate(action)
 
+                val action = ProfileFragmentDirections.actionProfileFragmentToMainFragment("refresh")
+                view?.findNavController()?.navigate(action)
             }
         }
 

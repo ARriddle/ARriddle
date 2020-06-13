@@ -3,7 +3,6 @@ package fr.ec.arridle.fragments
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.network.API
 import fr.ec.arridle.network.GameProperty
 import kotlinx.coroutines.CoroutineScope

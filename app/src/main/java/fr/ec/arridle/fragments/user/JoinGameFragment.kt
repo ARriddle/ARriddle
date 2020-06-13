@@ -55,7 +55,7 @@ class JoinGameFragment : Fragment() {
                         this?.commit()
                     }
 
-                    val action = JoinGameFragmentDirections.actionJoinFragmentToGameFragment()
+                    val action = JoinGameFragmentDirections.actionJoinFragmentToGameFragment("refresh")
                     view?.findNavController()?.navigate(action)
                 }
                 else {

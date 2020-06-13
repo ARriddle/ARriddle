@@ -1,19 +1,20 @@
 package fr.ec.arridle.activities
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import fr.ec.arridle.R
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,16 +28,30 @@ class MainActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
 
         val navController = this.findNavController(R.id.myNavHostFragment)
+        val graph = navController.navInflater.inflate(R.navigation.navigation)
+
+        // On vérifie si une connexion est déjà en cours
+        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        when (sharedPref.getString("status", null)) {
+            "manager" -> {}
+            "user" -> {
+                graph.startDestination = R.id.gameFragment
+            }
+            else -> {
+                graph.startDestination = R.id.mainFragment
+            }
+        }
+        navController.graph = graph
         NavigationUI.setupWithNavController(navView, navController)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.gameFragment) {
-                toolbar.title = destination.label
-                toolbar.navigationIcon = null
+        navController.addOnDestinationChangedListener { _, _, arguments ->
+            // Turn around to get the burger icon displaying ... (very ugly)
+            if (arguments?.getString("arg1") == "refresh") {
+                Log.i("azer","toto")
+                recreate()
             }
         }
-
     }
 
 
@@ -68,7 +83,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.dispatchTouchEvent(ev)
     }
-
 
     fun createNavDrawer() {
         val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
