@@ -18,6 +18,9 @@
     <string name="content_description_list_users">Image liste des utilisateurs</string>
     <string name="content_description_chest">Un coffre</string>
     <string name="content_description_cup">Une coupe</string>
+    <string name="content_description_compass">Un compas</string>
+    <string name="content_description_avatar">avatar de profil</string>
+
 
 
 
@@ -55,6 +58,10 @@
     <string name="label_score">Score</string>
     <string name="label_received_messages">Messages reçus</string>
     <string name="label_logout">Se déconnecter</string>
+    <string name="label_rank">Classement</string>
+    <string name="label_hunt">Chasser</string>
+    <string name="label_next_keypoint">Prochain point clef</string>
+    <string name="label_list_keypoint">Liste des points d\'intérêt</string>
 
 
 
@@ -79,11 +86,7 @@
     <!-- errors -->
     <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
     <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
-    <string name="content_description_avatar">avatar de profil</string>
-    <string name="list_keypoint">Liste des points d\'intérêt</string>
-    <string name="label_rank">Classement</string>
-    <string name="label_hunt">Chasser</string>
-    <string name="label_next_keypoint">Prochain point clef</string>
+
 
 
 </resources>
