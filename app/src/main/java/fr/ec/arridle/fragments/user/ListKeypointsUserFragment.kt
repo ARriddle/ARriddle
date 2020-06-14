@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import fr.ec.arridle.R
 import fr.ec.arridle.adapters.KeypointAdapter
-import fr.ec.arridle.databinding.FragmentListKeypointsBinding
 import fr.ec.arridle.databinding.FragmentListKeypointsUserBinding
-import fr.ec.arridle.fragments.manager.ListKeypointsViewModel
 
 class ListKeypointsUserFragment : Fragment() {
 

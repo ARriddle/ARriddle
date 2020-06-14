@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <import type="android.view.View" />
+        s
+        <variable
+            name="viewModel"
+            type="fr.ec.arridle.fragments.user.ProfileViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -60,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="FN54RT6Y"
+            android:text="@{viewModel.property.gameId}"
             app:layout_constraintBaseline_toBaselineOf="@+id/gameText"
             app:layout_constraintStart_toEndOf="@+id/gameText" />
 
@@ -70,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="Alvin"
+            android:text="@{viewModel.property.name}"
             app:layout_constraintBaseline_toBaselineOf="@+id/pseudoText"
             app:layout_constraintStart_toEndOf="@+id/pseudoText" />
 
@@ -80,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="320 pts"
+            android:text="@{String.valueOf(viewModel.property.points) +' '+'p'+'o'+'i'+'n'+'t'+'s'}"
             app:layout_constraintBaseline_toBaselineOf="@+id/scoreText"
             app:layout_constraintStart_toEndOf="@+id/scoreText" />
 
@@ -91,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
             android:layout_marginTop="42dp"
-            android:text="4è"
+            android:text="@{String.valueOf(viewModel.rank) + 'è'}"
             app:layout_constraintBottom_toTopOf="@+id/messageText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scoreText"
