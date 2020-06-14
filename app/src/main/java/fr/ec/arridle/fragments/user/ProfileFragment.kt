@@ -26,9 +26,10 @@ class ProfileFragment : Fragment() {
         (activity as MainActivity).createNavDrawer()
 
         binding.buttonLogout.setOnClickListener {
-            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+            val sharedPref = activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
             with (sharedPref?.edit()) {
                 this?.putString("status", null)
+                this?.putString("game_id", null)
                 this?.apply()
 
                 val action = ProfileFragmentDirections.actionProfileFragmentToMainFragment("refresh")

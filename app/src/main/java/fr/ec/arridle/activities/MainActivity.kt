@@ -1,7 +1,6 @@
 package fr.ec.arridle.activities
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         val graph = navController.navInflater.inflate(R.navigation.navigation)
 
         // On vérifie si une connexion est déjà en cours
-        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences("connection", Context.MODE_PRIVATE)
         when (sharedPref.getString("status", null)) {
             "manager" -> {}
             "user" -> {
@@ -85,7 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createNavDrawer() {
-        val sharedPref = this.getPreferences(Context.MODE_PRIVATE)
+        val sharedPref = this.getSharedPreferences("connection", Context.MODE_PRIVATE)
         when (sharedPref.getString("status", null)) {
             "manager" -> {
                 navView.menu.findItem(R.id.mainFragment)?.isVisible = false

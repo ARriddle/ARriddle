@@ -49,9 +49,10 @@ class JoinGameFragment : Fragment() {
                     getGameProperties(id)
                 }
                 if (properties.value != null){
-                    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
+                    val sharedPref = activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
                     with (sharedPref?.edit()) {
                         this?.putString("status","user")
+                        this?.putString("game_id", id)
                         this?.commit()
                     }
 
