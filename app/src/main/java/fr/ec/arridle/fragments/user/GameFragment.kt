@@ -5,20 +5,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import fr.ec.arridle.R
-import fr.ec.arridle.activities.MainActivity
+import androidx.lifecycle.ViewModelProvider
+import fr.ec.arridle.databinding.FragmentShowGameBinding
 
 class GameFragment : Fragment() {
+
+    private val viewModel: GameViewModel by lazy {
+        ViewModelProvider(this).get(GameViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        (activity as MainActivity).createNavDrawer()
-        // Inflate the layout for this fragment
+        val binding = FragmentShowGameBinding.inflate(inflater)
 
-        return inflater.inflate(R.layout.fragment_show_game, container, false)
+        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
+        binding.lifecycleOwner = this
+
+        binding.viewModel = viewModel
+        return binding.root
     }
-
-
 }

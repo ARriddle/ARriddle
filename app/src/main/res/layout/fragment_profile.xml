@@ -5,7 +5,7 @@
 
     <data>
         <import type="android.view.View" />
-        s
+
         <variable
             name="viewModel"
             type="fr.ec.arridle.fragments.user.ProfileViewModel" />

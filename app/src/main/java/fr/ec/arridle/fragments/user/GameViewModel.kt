@@ -13,8 +13,7 @@ import fr.ec.arridle.network.UserProperty
 import kotlinx.coroutines.*
 
 
-
-class ProfileViewModel(application: Application) : AndroidViewModel(application) {
+class GameViewModel(application: Application) : AndroidViewModel(application) {
     // The internal MutableLiveData String that stores the most recent response
     private val _property = MutableLiveData<UserProperty>()
     private val _rank = MutableLiveData<Int>()
@@ -59,24 +58,10 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
             }
         }
     }
-    suspend fun deleteUserProperties(gameId: String?, userId: Int?) {
-        coroutineScope {
-            launch {
-                val post =
-                    API.retrofitService.deleteUserAsync(game_id = gameId!!, user_id = userId!!)
-                try {
-                    post.await()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-    }
 
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
     }
-
 
 }
