@@ -2,9 +2,12 @@ package fr.ec.arridle.fragments.user
 
 import android.content.Context
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -49,6 +52,27 @@ class ProfileFragment : Fragment() {
                 view?.findNavController()?.navigate(action)
             }
         }
+
+        binding.showPseudo.setOnClickListener {
+            binding.editShowPseudo.visibility = View.VISIBLE
+            binding.showPseudo.visibility = View.GONE
+            binding.editShowPseudo.requestFocus()
+            val imm = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(binding.editShowPseudo, 0)
+
+
+        }
+        binding.editShowPseudo.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                binding.showPseudo.text = binding.editShowPseudo.text.toString()
+                binding.editShowPseudo.visibility = View.GONE
+                binding.showPseudo.visibility = View.VISIBLE
+                val imm = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view?.windowToken, 0)
+                return@OnKeyListener true
+            }
+            false
+        })
 
         // Inflate the layout for this fragment
         return binding.root

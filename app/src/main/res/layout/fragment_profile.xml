@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
             type="fr.ec.arridle.fragments.user.ProfileViewModel" />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,6 +83,17 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/pseudoText"
             app:layout_constraintStart_toEndOf="@+id/pseudoText" />
 
+        <EditText
+            android:id="@+id/editShowPseudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@{viewModel.property.name}"
+            android:visibility="gone"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pseudoText"
+            app:layout_constraintStart_toEndOf="@+id/pseudoText" />
+
         <TextView
             android:id="@+id/showScore"
             style="@style/SubTitle"
@@ -127,6 +140,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
