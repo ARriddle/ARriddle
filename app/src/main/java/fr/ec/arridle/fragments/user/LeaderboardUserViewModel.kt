@@ -1,4 +1,4 @@
-package fr.ec.arridle.fragments.manager
+package fr.ec.arridle.fragments.user
 
 import android.app.Application
 import android.content.Context
@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
+class LeaderboardUserViewModel(application: Application) : AndroidViewModel(application) {
     // The internal MutableLiveData String that stores the most recent response
     private val _properties = MutableLiveData<List<UserProperty>>()
 
@@ -32,7 +32,8 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
 
     private fun getUserProperties() {
         coroutineScope.launch {
-            val sharedPref = getApplication<Application>().getSharedPreferences("connection", Context.MODE_PRIVATE)
+            val sharedPref = getApplication<Application>().getSharedPreferences("connection",
+                Context.MODE_PRIVATE)
             val gameId = sharedPref.getString("game_id", null)
             val getPropertiesDeferred = API.retrofitService.getUsersAsync(game_id = gameId!!)
             try {
@@ -40,7 +41,7 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
-
+                e.printStackTrace()
             }
         }
     }

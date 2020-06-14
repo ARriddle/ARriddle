@@ -9,6 +9,6 @@ data class KeypointProperty (
     @Json(name = "url_cible") val urlCible: String,
     val latitude: Double,
     val longitude: Double,
-    @Json(name = "users_solvers") val usersSolvers: List<UserProperty>,
+    @Json(name = "users_solvers") val usersSolvers: List<UserProperty> = emptyList(),
     @Json(name = "game_id") val gameId: String
 )

@@ -2,10 +2,10 @@ package fr.ec.arridle.network
 
 import com.squareup.moshi.Json
 
-data class UserProperty (
+data class UserProperty(
     val id: Int,
     val name: String,
     val points: Int,
-    val game_id: String,
-    @Json(name = "keypoints_solved") val keypointsSolved: List<KeypointProperty>
+    @Json(name = "game_id")  val gameId: String,
+    @Json(name = "keypoints_solved") val keypointsSolved: List<KeypointProperty> = emptyList()
 )

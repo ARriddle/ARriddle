@@ -12,7 +12,7 @@ class KeypointAdapter :
     ListAdapter<KeypointProperty, KeypointAdapter.KeypointPropertyViewHolder>(DiffCallback) {
 
     /**
-     * The MarsPropertyViewHolder constructor takes the binding variable from the associated
+     * The KeypointPropertyViewHolder constructor takes the binding variable from the associated
      * GridViewItem, which nicely gives it access to the full [KeypointProperty] information.
      */
     class KeypointPropertyViewHolder(private var binding: ItemKeypointBinding) :

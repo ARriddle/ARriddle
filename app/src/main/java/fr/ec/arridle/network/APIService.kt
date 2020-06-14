@@ -6,8 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 private const val BASE_URL = " https://arriddle.rezoleo.fr"
 private val moshi = Moshi.Builder()
@@ -20,18 +19,66 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface APIService {
+
+    // -------------------- GET ----------------------
+
     @GET("games")
     fun getGamesAsync(): Deferred<List<GameProperty>>
 
     @GET("games/{game_id}")
-    fun getGameAsync(@Path(value= "game_id", encoded = true) game_id: String): Deferred<GameProperty>
+    fun getGameAsync(
+        @Path(
+            value = "game_id",
+            encoded = true
+        ) game_id: String
+    ): Deferred<GameProperty>
 
-    @GET("keypoints")
-    fun getKeypointsAsync(): Deferred<List<KeypointProperty>>
+    @GET("games/{game_id}/keypoints")
+    fun getKeypointsAsync(
+        @Path(
+            value = "game_id",
+            encoded = true
+        ) game_id: String
+    ): Deferred<List<KeypointProperty>>
 
-    @GET("users")
-    fun getUsersAsync(): Deferred<List<UserProperty>>
+    @GET("games/{game_id}/keypoints/{keypoint_id}")
+    fun getKeypointsAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "keypoint_id", encoded = true) keypoint_id: String
+    ): Deferred<List<KeypointProperty>>
+
+    @GET("games/{game_id}/users")
+    fun getUsersAsync(
+        @Path(
+            value = "game_id",
+            encoded = true
+        ) game_id: String
+    ): Deferred<List<UserProperty>>
+
+    @GET("games/{game_id}/users/{user_id}")
+    fun getUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "user_id", encoded = true) user_id: String
+    ): Deferred<List<UserProperty>>
+
+    // -------------------- POST ----------------------
+
+    @POST("games/{game_id}/users")
+    fun postUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Query("name") name: String,
+        @Query("points") points: Int = 0
+    ): Deferred<UserProperty>
+
+    // -------------------- DELETE ---------------------
+    @DELETE("games/{game_id}/users/{user_id}")
+    fun deleteUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "user_id", encoded = true) user_id: Int
+        ): Deferred<Unit>
+
 }
+
 
 object API {
     val retrofitService: APIService by lazy {

@@ -1,24 +1,25 @@
-package fr.ec.arridle.fragments.manager
+package fr.ec.arridle.fragments.user
 
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.network.API
-import fr.ec.arridle.network.UserProperty
+import fr.ec.arridle.network.KeypointProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
+class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(application) {
     // The internal MutableLiveData String that stores the most recent response
-    private val _properties = MutableLiveData<List<UserProperty>>()
+    private val _properties = MutableLiveData<List<KeypointProperty>>()
 
     // The external immutable LiveData for the response String
 
-    val properties: LiveData<List<UserProperty>>
+    val properties: LiveData<List<KeypointProperty>>
         get() = _properties
 
     private var viewModelJob = Job()
@@ -27,20 +28,21 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
     )
 
     init {
-        getUserProperties()
+        getKeypointsProperties()
     }
 
-    private fun getUserProperties() {
+    private fun getKeypointsProperties() {
         coroutineScope.launch {
-            val sharedPref = getApplication<Application>().getSharedPreferences("connection", Context.MODE_PRIVATE)
+            val sharedPref = getApplication<Application>().getSharedPreferences("connection",Context.MODE_PRIVATE)
             val gameId = sharedPref.getString("game_id", null)
-            val getPropertiesDeferred = API.retrofitService.getUsersAsync(game_id = gameId!!)
+            val getKeypointsDeferred = API.retrofitService.getKeypointsAsync(game_id = gameId!!)
+
             try {
-                val listResult = getPropertiesDeferred.await()
+                val listResult = getKeypointsDeferred.await()
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
-
+                e.printStackTrace()
             }
         }
     }

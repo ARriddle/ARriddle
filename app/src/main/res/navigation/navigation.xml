@@ -125,7 +125,7 @@
         tools:layout="@layout/fragment_create_keypoint" />
     <fragment
         android:id="@+id/listKeypointsUserFragment"
-        android:name="fr.ec.arridle.fragments.user.ListKeypointsFragment"
+        android:name="fr.ec.arridle.fragments.user.ListKeypointsUserFragment"
         android:label="fragment_list_keypoints_user"
         tools:layout="@layout/fragment_list_keypoints_user" >
         <action
@@ -134,12 +134,12 @@
     </fragment>
     <fragment
         android:id="@+id/mapUserFragment"
-        android:name="fr.ec.arridle.fragments.user.MapFragment"
+        android:name="fr.ec.arridle.fragments.user.MapUserFragment"
         android:label="fragment_map_user"
         tools:layout="@layout/fragment_map_user" />
     <fragment
         android:id="@+id/leaderboardUserFragment"
-        android:name="fr.ec.arridle.fragments.user.LeaderboardFragment"
+        android:name="fr.ec.arridle.fragments.user.LeaderboardUserFragment"
         android:label="fragment_leaderboard_user"
         tools:layout="@layout/fragment_leaderboard_user" />
     <fragment

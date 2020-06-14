@@ -1,5 +1,8 @@
 package fr.ec.arridle.fragments.manager
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class ListKeypointsViewModel : ViewModel() {
+class ListKeypointsViewModel(application: Application) : AndroidViewModel(application) {
     // The internal MutableLiveData String that stores the most recent response
     private val _properties = MutableLiveData<List<KeypointProperty>>()
 
@@ -30,7 +33,9 @@ class ListKeypointsViewModel : ViewModel() {
 
     private fun getKeypointsProperties() {
         coroutineScope.launch {
-            val getKeypointsDeferred = API.retrofitService.getKeypointsAsync()
+            val sharedPref = getApplication<Application>().getSharedPreferences("connection", Context.MODE_PRIVATE)
+            val gameId = sharedPref.getString("game_id", null)
+            val getKeypointsDeferred = API.retrofitService.getKeypointsAsync(game_id = gameId!!)
 
             try {
                 val listResult = getKeypointsDeferred.await()

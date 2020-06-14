@@ -37,6 +37,7 @@ class MainViewModel : ViewModel() {
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
+                e.printStackTrace()
 
             }
         }

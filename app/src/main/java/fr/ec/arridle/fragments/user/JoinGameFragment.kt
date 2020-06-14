@@ -2,6 +2,7 @@ package fr.ec.arridle.fragments.user
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.databinding.FragmentJoinGameBinding
 import fr.ec.arridle.network.API
 import fr.ec.arridle.network.GameProperty
+import fr.ec.arridle.randomPseudo
 import kotlinx.coroutines.*
 
 
@@ -27,6 +29,7 @@ class JoinGameFragment : Fragment() {
 
     // The internal MutableLiveData String that stores the most recent response
     private val _properties = MutableLiveData<GameProperty>()
+    private var userId = MutableLiveData<Int>()
 
     // The external immutable LiveData for the response String
 
@@ -43,22 +46,32 @@ class JoinGameFragment : Fragment() {
         )
         (activity as MainActivity).createNavDrawer()
         binding.buttonJoinGame.setOnClickListener {
-            val id = binding.editTextIdGame.text.toString()
-            if (validate(id)) {
+            val gameId = binding.editTextIdGame.text.toString()
+            if (validate(gameId)) {
                 runBlocking {
-                    getGameProperties(id)
+                    getGameProperties(gameId)
                 }
-                if (properties.value != null){
-                    val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
-                    with (sharedPref?.edit()) {
-                        this?.putString("status","user")
-                        this?.commit()
+                if (properties.value != null) {
+                    val pseudo = randomPseudo()
+                    val sharedPref =
+                        activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
+                    with(sharedPref?.edit()) {
+                        try {
+                            runBlocking {
+                                postUserProperties(gameId, pseudo)
+                            }
+                            this?.putString("status", "user")
+                            this?.putString("game_id", gameId)
+                            userId.value?.let { it1 -> this?.putInt("user_id", it1) }
+                            this?.apply()
+                        } catch (e: java.lang.Exception) {
+                        }
                     }
 
-                    val action = JoinGameFragmentDirections.actionJoinFragmentToGameFragment("refresh")
+                    val action =
+                        JoinGameFragmentDirections.actionJoinFragmentToGameFragment("refresh")
                     view?.findNavController()?.navigate(action)
-                }
-                else {
+                } else {
                     binding.textError.text = getString(R.string.error_game_id_doesnt_exist)
                 }
             } else {
@@ -84,6 +97,20 @@ class JoinGameFragment : Fragment() {
                     _properties.value = game
                 } catch (e: Exception) {
                     _properties.value = null
+                }
+            }
+        }
+    }
+
+    private suspend fun postUserProperties(id: String, pseudo: String) {
+        coroutineScope {
+            launch {
+                val post = API.retrofitService.postUserAsync(id, pseudo)
+                try {
+                    val user = post.await()
+                    userId.value = user.id
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
             }
         }
