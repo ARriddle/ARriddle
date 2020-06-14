@@ -1,7 +1,9 @@
 package fr.ec.arridle.fragments.user
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,8 @@ import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.databinding.FragmentJoinGameBinding
 import fr.ec.arridle.network.API
 import fr.ec.arridle.network.GameProperty
+import fr.ec.arridle.network.PostUserProperty
+import fr.ec.arridle.randomPseudo
 import kotlinx.coroutines.*
 
 
@@ -48,18 +52,27 @@ class JoinGameFragment : Fragment() {
                 runBlocking {
                     getGameProperties(id)
                 }
-                if (properties.value != null){
-                    val sharedPref = activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
-                    with (sharedPref?.edit()) {
-                        this?.putString("status","user")
-                        this?.putString("game_id", id)
-                        this?.commit()
+                if (properties.value != null) {
+                    val pseudo = randomPseudo()
+                    val sharedPref =
+                        activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
+                    with(sharedPref?.edit()) {
+                        try {
+                            runBlocking {
+                                postUserProperties(id, pseudo)
+                            }
+                            this?.putString("status", "user")
+                            this?.putString("game_id", id)
+                            this?.putString("pseudo", pseudo)
+                            this?.apply()
+                        } catch (e: java.lang.Exception) {
+                        }
                     }
 
-                    val action = JoinGameFragmentDirections.actionJoinFragmentToGameFragment("refresh")
+                    val action =
+                        JoinGameFragmentDirections.actionJoinFragmentToGameFragment("refresh")
                     view?.findNavController()?.navigate(action)
-                }
-                else {
+                } else {
                     binding.textError.text = getString(R.string.error_game_id_doesnt_exist)
                 }
             } else {
@@ -86,6 +99,22 @@ class JoinGameFragment : Fragment() {
                 } catch (e: Exception) {
                     _properties.value = null
                 }
+            }
+        }
+    }
+
+    private suspend fun postUserProperties(id: String, pseudo: String) {
+        coroutineScope {
+            launch {
+                val user = PostUserProperty(pseudo, 0, id)
+                val post = API.retrofitService.postUserAsync(id, user)
+                try {
+                    val post_ = post.await()
+                    Log.i("azer", post_.toString())
+                } catch (e: Exception) {
+                }
+                Log.i("azer", post.toString())
+
             }
         }
     }

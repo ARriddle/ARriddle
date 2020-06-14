@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, _, arguments ->
             // Turn around to get the burger icon displaying ... (very ugly)
             if (arguments?.getString("arg1") == "refresh") {
-                Log.i("azer","toto")
                 recreate()
             }
         }
