@@ -7,11 +7,5 @@ data class UserProperty(
     val name: String,
     val points: Int,
     val game_id: String,
-    @Json(name = "keypoints_solved") val keypointsSolved: List<KeypointProperty>
-)
-
-data class PostUserProperty(
-    val name: String,
-    val points: Int,
-    val game_id: String
+    @Json(name = "keypoints_solved") val keypointsSolved: List<KeypointProperty> = emptyList()
 )

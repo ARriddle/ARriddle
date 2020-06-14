@@ -8,6 +8,6 @@ data class GameProperty(
     val duration: Int,
     @Json(name = "time_start") val timeStart: Int,
     @Json(name = "nb_player_max") val nbPlayerMax: Int,
-    val keypoints: List<KeypointProperty>,
-    val users: List<UserProperty>
+    val keypoints: List<KeypointProperty> = emptyList(),
+    val users: List<UserProperty> = emptyList()
 )
