@@ -43,24 +43,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{String.valueOf(property.latitude) + 'N' +'\n' + String.valueOf(property.longitude) + 'W'}"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/gameInfo2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{property.urlCible}"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/gameInfo3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:textColor="@color/black"
-                    android:text="@{property.name}"/>
+                    android:text="@{String.valueOf(property.points)+' '+'p'+'o'+'i'+'n'+'t'+'s' }"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
