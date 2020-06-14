@@ -75,8 +75,15 @@ interface APIService {
     fun deleteUserAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
         @Path(value = "user_id", encoded = true) user_id: Int
-        ): Deferred<Unit>
+    ): Deferred<Unit>
 
+    // --------------------- UPDATE ---------------------
+    @PUT("games/{game_id}/users/{user_id}")
+    fun putUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "user_id", encoded = true) user_id: Int,
+        @Body user: PutUserProperty
+    ): Deferred<UserProperty>
 }
 
 

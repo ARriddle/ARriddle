@@ -2,6 +2,7 @@ package fr.ec.arridle.fragments.user
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -33,9 +34,9 @@ class ProfileFragment : Fragment() {
 
         // Called to recreate the navdrawer
         (activity as MainActivity).createNavDrawer()
+        val sharedPref = activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
 
         binding.buttonLogout.setOnClickListener {
-            val sharedPref = activity?.getSharedPreferences("connection", Context.MODE_PRIVATE)
             runBlocking {
                 viewModel.deleteUserProperties(
                     sharedPref?.getString("game_id", null),
@@ -69,6 +70,17 @@ class ProfileFragment : Fragment() {
                 binding.showPseudo.visibility = View.VISIBLE
                 val imm = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(view?.windowToken, 0)
+                Log.i("azer", sharedPref?.getString("game_id", null).toString())
+                Log.i("azer", sharedPref?.getInt("user_id", -1).toString())
+                Log.i("azer", binding.showPseudo.text.toString())
+
+                runBlocking {
+                    viewModel.putUserProperties(
+                        sharedPref?.getString("game_id", null),
+                        sharedPref?.getInt("user_id", -1),
+                        binding.showPseudo.text.toString()
+                    )
+                }
                 return@OnKeyListener true
             }
             false

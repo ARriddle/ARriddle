@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import fr.ec.arridle.findRankById
 import fr.ec.arridle.findUserById
 import fr.ec.arridle.network.API
+import fr.ec.arridle.network.PutUserProperty
 import fr.ec.arridle.network.UserProperty
 import kotlinx.coroutines.*
 
@@ -66,6 +67,21 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                     API.retrofitService.deleteUserAsync(game_id = gameId!!, user_id = userId!!)
                 try {
                     post.await()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    suspend fun putUserProperties(gameId: String?, userId: Int?, pseudo: String){
+        coroutineScope {
+            launch {
+                val put =
+                    API.retrofitService.putUserAsync(game_id = gameId!!, user_id = userId!!, user = PutUserProperty(pseudo))
+                try {
+                    val p = put.await()
+                    Log.i("azert",p.toString())
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
