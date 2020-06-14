@@ -52,7 +52,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                 val place = findRankById(listResult, user)
                 _property.value = user
                 _rank.value = place
-                Log.i("azer", _property.value!!.name)
             } catch (e: Exception) {
                 _rank.value = null
                 _property.value = null
@@ -81,7 +80,6 @@ class ProfileViewModel(application: Application) : AndroidViewModel(application)
                     API.retrofitService.putUserAsync(game_id = gameId!!, user_id = userId!!, user = PutUserProperty(pseudo))
                 try {
                     val p = put.await()
-                    Log.i("azert",p.toString())
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

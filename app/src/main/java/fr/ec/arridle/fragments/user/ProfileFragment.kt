@@ -70,9 +70,6 @@ class ProfileFragment : Fragment() {
                 binding.showPseudo.visibility = View.VISIBLE
                 val imm = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.hideSoftInputFromWindow(view?.windowToken, 0)
-                Log.i("azer", sharedPref?.getString("game_id", null).toString())
-                Log.i("azer", sharedPref?.getInt("user_id", -1).toString())
-                Log.i("azer", binding.showPseudo.text.toString())
 
                 runBlocking {
                     viewModel.putUserProperties(

@@ -43,14 +43,12 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             val gameId = sharedPref.getString("game_id", null)
             val userId = sharedPref.getInt("user_id", -1)
             val users = API.retrofitService.getUsersAsync(game_id = gameId!!)
-            Log.i("azer", userId.toString())
             try {
                 val listResult = users.await()
                 val user = findUserById(listResult, userId)
                 val place = findRankById(listResult, user)
                 _property.value = user
                 _rank.value = place
-                Log.i("azer", _property.value!!.name)
             } catch (e: Exception) {
                 _rank.value = null
                 _property.value = null
