@@ -41,7 +41,7 @@ class LeaderboardUserViewModel(application: Application) : AndroidViewModel(appl
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
-
+                e.printStackTrace()
             }
         }
     }

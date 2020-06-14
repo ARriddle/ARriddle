@@ -110,6 +110,7 @@ class JoinGameFragment : Fragment() {
                     val user = post.await()
                     userId.value = user.id
                 } catch (e: Exception) {
+                    e.printStackTrace()
                 }
             }
         }

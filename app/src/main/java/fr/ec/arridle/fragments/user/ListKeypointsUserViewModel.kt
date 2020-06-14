@@ -42,6 +42,7 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
+                e.printStackTrace()
             }
         }
     }
