@@ -106,15 +106,11 @@ class JoinGameFragment : Fragment() {
     private suspend fun postUserProperties(id: String, pseudo: String) {
         coroutineScope {
             launch {
-                val user = PostUserProperty(pseudo, 0, id)
-                val post = API.retrofitService.postUserAsync(id, user)
+                val post = API.retrofitService.postUserAsync(id, pseudo)
                 try {
-                    val post_ = post.await()
-                    Log.i("azer", post_.toString())
+                    post.await()
                 } catch (e: Exception) {
                 }
-                Log.i("azer", post.toString())
-
             }
         }
     }

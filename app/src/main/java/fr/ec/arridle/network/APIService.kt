@@ -6,10 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 private const val BASE_URL = " https://arriddle.rezoleo.fr"
 private val moshi = Moshi.Builder()
@@ -68,10 +65,12 @@ interface APIService {
 
     @POST("games/{game_id}/users")
     fun postUserAsync(
-        @Path(value = "game_id", encoded = true) game_id: String, @Body user: PostUserProperty
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Query("name") name: String,
+        @Query("points") points: Int = 0
     ): Deferred<UserProperty>
 
-} 
+}
 
 
 object API {
