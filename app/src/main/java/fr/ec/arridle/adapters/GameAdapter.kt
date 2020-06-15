@@ -9,7 +9,7 @@ import fr.ec.arridle.databinding.ItemGameBinding
 import fr.ec.arridle.network.GameProperty
 
 
-class GameAdapter :
+class GameAdapter(private val onClickListener: GameAdapter.OnClickListener) :
     ListAdapter<GameProperty,
             GameAdapter.GamePropertyViewHolder>(DiffCallback) {
 
@@ -56,10 +56,9 @@ class GameAdapter :
      */
     override fun onBindViewHolder(holder: GamePropertyViewHolder, position: Int) {
         val gameProperty = getItem(position)
-
-        /*holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener {
             onClickListener.onClick(gameProperty)
-        }*/
+        }
         holder.bind(gameProperty)
 
         /**
@@ -70,5 +69,10 @@ class GameAdapter :
         var currentColor = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
         holder.itemView.setBackgroundColor(currentColor)*/
 
+    }
+    class OnClickListener(val clickListener: (gameProperty: GameProperty) -> Unit) {
+        fun onClick(gameProperty: GameProperty) {
+            clickListener(gameProperty)
+        }
     }
 }
