@@ -38,7 +38,8 @@ class LeaderboardUserViewModel(application: Application) : AndroidViewModel(appl
             val getPropertiesDeferred = API.retrofitService.getUsersAsync(game_id = gameId!!)
             try {
                 val listResult = getPropertiesDeferred.await()
-                _properties.value = listResult
+                val listSorted = listResult.sortedByDescending { it.points }
+                _properties.value = listSorted
             } catch (e: Exception) {
                 _properties.value = ArrayList()
                 e.printStackTrace()
@@ -50,4 +51,5 @@ class LeaderboardUserViewModel(application: Application) : AndroidViewModel(appl
         super.onCleared()
         viewModelJob.cancel()
     }
+
 }
