@@ -1,19 +1,14 @@
 package fr.ec.arridle.fragments.user
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import fr.ec.arridle.R
 import fr.ec.arridle.databinding.FragmentShowKeypointBinding
-import fr.ec.arridle.network.PutPointsUserProperty
 import kotlinx.coroutines.runBlocking
 
 class KeypointFragment : Fragment() {

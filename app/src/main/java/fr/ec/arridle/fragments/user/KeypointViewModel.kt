@@ -2,6 +2,7 @@ package fr.ec.arridle.fragments.user
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.*
 import fr.ec.arridle.findUserById
 import fr.ec.arridle.network.*
@@ -61,11 +62,12 @@ class KeypointViewModel(keypointId: Int, app: Application) : AndroidViewModel(ap
             )
             val gameId = sharedPref.getString("game_id", null)
             val userId = sharedPref.getInt("user_id", -1)
-            val users = API.retrofitService.getUserAsync(game_id = gameId!!, user_id = userId)
+            val user = API.retrofitService.getUserAsync(game_id = gameId!!, user_id = userId)
 
             try {
-                val user = users.await()
+                val user = user.await()
                 _user.value = user
+
             } catch (e: Exception) {
                 _user.value = null
                 e.printStackTrace()
@@ -76,7 +78,7 @@ class KeypointViewModel(keypointId: Int, app: Application) : AndroidViewModel(ap
         coroutineScope {
             launch {
                 val put =
-                    API.retrofitService.putPointsUserAsync(game_id = gameId!!, user_id = userId!!, user = PutPointsUserProperty(points))
+                    API.retrofitService.putUserAsync(game_id = gameId!!, user_id = userId!!, user = PutUserProperty(points=points))
                 try {
                     val p = put.await()
                 } catch (e: Exception) {

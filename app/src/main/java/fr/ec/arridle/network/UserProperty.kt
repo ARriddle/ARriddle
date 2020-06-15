@@ -10,6 +10,9 @@ data class UserProperty(
     @Json(name = "keypoints_solved") val keypointsSolved: List<KeypointProperty> = emptyList()
 )
 
-data class PutUserProperty(val name: String)
+data class PutUserProperty(
+    val name: String? = null,
+    val points: Int? = null,
+    val keypointsSolved: List<KeypointProperty>? = null
+)
 
-data class PutPointsUserProperty(val points: Int)
