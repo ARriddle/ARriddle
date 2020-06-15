@@ -29,31 +29,51 @@ class KeypointFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(KeypointViewModel::class.java)
 
         binding.buttonSend.setOnClickListener {
-            if (binding.editTextAnswer.text.toString() == (binding.viewModel as KeypointViewModel).keypointProperty.value!!.solution) {
-                val points =
-                    (binding.viewModel as KeypointViewModel).user.value!!.points + (binding.viewModel as KeypointViewModel).keypointProperty.value!!.points
-                val sharedPref = activity?.getSharedPreferences(
-                    "connection",
-                    Context.MODE_PRIVATE
-                )
-                val gameId = sharedPref?.getString("game_id", null)
-                val userId = sharedPref?.getInt("user_id", -1)
-                runBlocking {
-                    (binding.viewModel as KeypointViewModel).putUserProperties(
-                        gameId,
-                        userId,
-                        points
-                    )
-                }
+            val sharedPref = activity?.getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
+            val gameId = sharedPref?.getString("game_id", null)
+            val userId = sharedPref?.getInt("user_id", -1)
+            val hasBeenResolved = ((binding.viewModel as KeypointViewModel).solves.value?.filter { it.keypointId == keypointId && it.userId == userId }).isNullOrEmpty()
+            if (hasBeenResolved) {
                 Toast.makeText(
                     activity,
-                    "Bravo vous marquez ${(binding.viewModel as KeypointViewModel).keypointProperty.value!!.points} points",
+                    "Vosu avez déjà résolu le point d'intérêt !",
                     Toast.LENGTH_SHORT
                 ).show()
-
             } else {
-                Toast.makeText(activity, "Ce n'est pas la réponse attendue.", Toast.LENGTH_SHORT)
-                    .show()
+                if (binding.editTextAnswer.text.toString() == (binding.viewModel as KeypointViewModel).keypointProperty.value!!.solution) {
+                    val points =
+                        (binding.viewModel as KeypointViewModel).user.value!!.points + (binding.viewModel as KeypointViewModel).keypointProperty.value!!.points
+
+                    runBlocking {
+                        (binding.viewModel as KeypointViewModel).putUserProperties(
+                            gameId,
+                            userId,
+                            points
+                        )
+                        (binding.viewModel as KeypointViewModel).postSolve(
+                            gameId = gameId,
+                            userId = userId,
+                            keypointId = keypointId
+                        )
+
+                    }
+                    Toast.makeText(
+                        activity,
+                        "Bravo vous marquez ${(binding.viewModel as KeypointViewModel).keypointProperty.value!!.points} points",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                } else {
+                    Toast.makeText(
+                        activity,
+                        "Ce n'est pas la réponse attendue.",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
             }
         }
 
