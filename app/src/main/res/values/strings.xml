@@ -20,8 +20,7 @@
     <string name="content_description_cup">Une coupe</string>
     <string name="content_description_compass">Un compas</string>
     <string name="content_description_avatar">avatar de profil</string>
-
-
+    <string name="content_description_light">Une amppoule</string>
 
 
     <!-- nav drawer labels -->
@@ -47,7 +46,7 @@
     <string name="label_game_name2">Nom de la partie</string>
     <string name="label_keypoint_title">Points-clefs</string>
     <string name="label_user_list">Liste des utilisateurs</string>
-    <string name="label_send_message_manage">ENVOYER </string>
+    <string name="label_send_message_manage">Envoyer </string>
     <string name="label_send_message_label">Envoyer un message au groupe</string>
     <string name="label_write_message_edittext">Écrivez votre message</string>
     <string name="label_id_game">Identifiant de la partie</string>
@@ -62,7 +61,10 @@
     <string name="label_hunt">Chasser</string>
     <string name="label_next_keypoint">Prochain point clef</string>
     <string name="label_list_keypoint">Liste des points d\'intérêt</string>
-
+    <string name="label_description">Description de l\'activité</string>
+    <string name="label_answer">Votre réponse</string>
+    <string name="label_vocal">Vocal</string>
+    <string name="label_send_answer">Envoyer</string>
 
 
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>

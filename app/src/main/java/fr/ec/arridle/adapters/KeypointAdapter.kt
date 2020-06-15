@@ -1,5 +1,6 @@
 package fr.ec.arridle.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.ec.arridle.databinding.ItemKeypointBinding
 import fr.ec.arridle.network.KeypointProperty
 
-class KeypointAdapter :
+class KeypointAdapter(private val onClickListener: OnClickListener) :
     ListAdapter<KeypointProperty, KeypointAdapter.KeypointPropertyViewHolder>(DiffCallback) {
 
     /**
@@ -54,9 +55,20 @@ class KeypointAdapter :
      */
     override fun onBindViewHolder(holder: KeypointPropertyViewHolder, position: Int) {
         val keypointProperty = getItem(position)
-        /*holder.itemView.setOnClickListener {
-            onClickListener.onClick(gameProperty)
-        }*/
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(keypointProperty)
+        }
         holder.bind(keypointProperty)
     }
+    /**
+     * Custom listener that handles clicks on [RecyclerView] items.  Passes the [keypointId]
+     * associated with the current item to the [onClick] function.
+     * @param clickListener lambda that will be called with the current [KeypointId]
+     */
+    class OnClickListener(val clickListener: (keypointProperty: KeypointProperty) -> Unit) {
+        fun onClick(keypointProperty: KeypointProperty) {
+            clickListener(keypointProperty)
+        }
+    }
+
 }

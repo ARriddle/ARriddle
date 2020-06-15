@@ -18,9 +18,10 @@
         <TextView
             android:id="@+id/gamename"
             style="@style/Title_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_game_name2"
+            android:layout_width="366dp"
+            android:layout_height="56dp"
+            android:gravity="center_horizontal"
+            android:text="@{viewModel.game}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"

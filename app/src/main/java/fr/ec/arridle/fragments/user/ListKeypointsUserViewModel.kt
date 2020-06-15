@@ -2,6 +2,7 @@ package fr.ec.arridle.fragments.user
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,6 +22,11 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
 
     val properties: LiveData<List<KeypointProperty>>
         get() = _properties
+
+    // LiveData to handle navigation to the selected property
+    private val _navigateToSelectedKeypoint = MutableLiveData<KeypointProperty>()
+    val navigateToSelectedKeypoint: LiveData<KeypointProperty>
+        get() = _navigateToSelectedKeypoint
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(
@@ -50,5 +56,20 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    /**
+     * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
+     * @param keypointProperty The [keypointProperty] that was clicked on.
+     */
+    fun displayKeypointDetails(keypointProperty: KeypointProperty) {
+        _navigateToSelectedKeypoint.value = keypointProperty
+    }
+
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedProperty is set to null
+     */
+    fun displayKeypointDetailsComplete() {
+        _navigateToSelectedKeypoint.value = null
     }
 }

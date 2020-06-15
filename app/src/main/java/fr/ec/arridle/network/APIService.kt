@@ -42,10 +42,10 @@ interface APIService {
     ): Deferred<List<KeypointProperty>>
 
     @GET("games/{game_id}/keypoints/{keypoint_id}")
-    fun getKeypointsAsync(
+    fun getKeypointAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
-        @Path(value = "keypoint_id", encoded = true) keypoint_id: String
-    ): Deferred<List<KeypointProperty>>
+        @Path(value = "keypoint_id", encoded = true) keypoint_id: Int
+    ): Deferred<KeypointProperty>
 
     @GET("games/{game_id}/users")
     fun getUsersAsync(
@@ -58,8 +58,8 @@ interface APIService {
     @GET("games/{game_id}/users/{user_id}")
     fun getUserAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
-        @Path(value = "user_id", encoded = true) user_id: String
-    ): Deferred<List<UserProperty>>
+        @Path(value = "user_id", encoded = true) user_id: Int
+    ): Deferred<UserProperty>
 
     // -------------------- POST ----------------------
 
@@ -70,12 +70,50 @@ interface APIService {
         @Query("points") points: Int = 0
     ): Deferred<UserProperty>
 
+    @POST("games/{game_id}/keypoints")
+    fun postKeypointAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Query("name") name: String,
+        @Query("points") points: Int = 0,
+        @Query("url_cible") urlCible: String? = null,
+        @Query("latitude") latitude : Double? = null ,
+        @Query("longitude") longitude : Double? = null
+    ): Deferred<KeypointProperty>
+
+    @POST("games/{game_id}")
+    fun postGameAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Query("name") name: String,
+        @Query("duration") duration: Int,
+        @Query("time_start") timeStart: Int? = null,
+        @Query("nb_player_max") nbPlayerMax: Int? = null
+        ): Deferred<GameProperty>
+
     // -------------------- DELETE ---------------------
     @DELETE("games/{game_id}/users/{user_id}")
     fun deleteUserAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
         @Path(value = "user_id", encoded = true) user_id: Int
-        ): Deferred<Unit>
+    ): Deferred<Unit>
+
+    @DELETE("games/{game_id}/keypoints/{keypoint_id}")
+    fun deleteKeypointAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "keypoint_id", encoded = true) keypoint_id: Int
+    ): Deferred<Unit>
+
+    @DELETE("games/{game_id}")
+    fun deleteGameAsync(
+        @Path(value = "game_id", encoded = true) game_id: String
+    ): Deferred<Unit>
+
+    // --------------------- PUT ---------------------
+    @PUT("games/{game_id}/users/{user_id}")
+    fun putUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "user_id", encoded = true) user_id: Int,
+        @Body user: PutUserProperty
+    ): Deferred<UserProperty>
 
 }
 

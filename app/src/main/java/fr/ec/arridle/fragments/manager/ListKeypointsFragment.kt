@@ -23,7 +23,7 @@ class ListKeypointsFragment : Fragment() {
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
-        binding.keypointsView.adapter = KeypointAdapter()
+        /*binding.keypointsView.adapter = KeypointAdapter()*/
 
         // Inflate the layout for this fragment
         return binding.root
