@@ -34,7 +34,8 @@ class MainViewModel : ViewModel() {
 
             try {
                 val listResult = getPropertiesDeferred.await()
-                _properties.value = listResult
+                val list = listResult.filter { it.visibility }
+                _properties.value = list
             } catch (e: Exception) {
                 _properties.value = ArrayList()
                 e.printStackTrace()
