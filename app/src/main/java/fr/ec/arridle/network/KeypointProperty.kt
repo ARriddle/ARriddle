@@ -5,6 +5,8 @@ import com.squareup.moshi.Json
 data class KeypointProperty (
     val id: Int,
     val name: String,
+    val description: String,
+    val solution: String,
     val points: Int,
     @Json(name = "url_cible") val urlCible: String,
     val latitude: Double,
