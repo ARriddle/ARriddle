@@ -21,7 +21,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private val _property = MutableLiveData<UserProperty>()
     private val _rank = MutableLiveData<Int>()
     private val _keypoints = MutableLiveData<List<KeypointProperty>>()
-
+    private val _navigateToSelectedKeypoint = MutableLiveData<KeypointProperty>()
     // The external immutable LiveData for the response String
 
     val property: LiveData<UserProperty>
@@ -32,6 +32,9 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     val keypoints: LiveData<List<KeypointProperty>>
         get() = _keypoints
+
+    val navigateToSelectedKeypoint: LiveData<KeypointProperty>
+        get() = _navigateToSelectedKeypoint
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(
@@ -85,6 +88,21 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    /**
+     * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
+     * @param keypointProperty The [keypointProperty] that was clicked on.
+     */
+    fun displayKeypointDetails(keypointProperty: KeypointProperty) {
+        _navigateToSelectedKeypoint.value = keypointProperty
+    }
+
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedProperty is set to null
+     */
+    fun displayKeypointDetailsComplete() {
+        _navigateToSelectedKeypoint.value = null
     }
 
 }

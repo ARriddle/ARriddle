@@ -151,18 +151,15 @@
         android:label="fragment_show_game"
         tools:layout="@layout/fragment_show_game">
         <action
-            android:id="@+id/action_gameFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
             android:id="@+id/action_gameFragment_to_listKeypointsUserFragment"
             app:destination="@id/listKeypointsUserFragment" />
-        <action
-            android:id="@+id/action_gameFragment_to_leaderboardUserFragment"
-            app:destination="@id/leaderboardUserFragment" />
         <argument
             android:name="arg1"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_gameFragment_to_keypointFragment"
+            app:destination="@id/keypointFragment" />
     </fragment>
 
 </navigation>
