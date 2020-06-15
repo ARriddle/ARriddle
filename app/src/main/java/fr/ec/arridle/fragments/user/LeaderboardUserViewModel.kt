@@ -47,6 +47,7 @@ class LeaderboardUserViewModel(application: Application) : AndroidViewModel(appl
         }
     }
 
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()

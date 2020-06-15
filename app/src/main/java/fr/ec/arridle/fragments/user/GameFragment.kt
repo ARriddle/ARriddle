@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import fr.ec.arridle.activities.MainActivity
+import fr.ec.arridle.adapters.KeypointAdapter
+import fr.ec.arridle.adapters.UserAdapter
 import fr.ec.arridle.databinding.FragmentShowGameBinding
 
 class GameFragment : Fragment() {
@@ -25,6 +27,8 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
+        binding.keypointsView.adapter = KeypointAdapter()
+
         (activity as MainActivity).createNavDrawer()
         return binding.root
     }

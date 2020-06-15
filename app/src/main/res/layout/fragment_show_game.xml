@@ -10,6 +10,7 @@
         <variable
             name="viewModel"
             type="fr.ec.arridle.fragments.user.GameViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,10 +27,9 @@
             android:text="@string/label_list_keypoint"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.386" />
+            app:layout_constraintVertical_bias="0.363" />
 
         <TextView
             android:id="@+id/textView3"
@@ -52,8 +52,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.775" />
+            app:layout_constraintTop_toBottomOf="@+id/keypoints_view"
+            app:layout_constraintVertical_bias="0.166" />
 
         <TextView
             android:id="@+id/textView5"
@@ -127,5 +127,18 @@
             app:layout_constraintTop_toTopOf="@+id/imageView7"
             app:layout_constraintVertical_bias="1.0" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/keypoints_view"
+            android:layout_width="352dp"
+            android:layout_height="349dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.1"
+            app:listKeypoints="@{viewModel.keypoints}"
+            tools:listitem="@layout/item_keypoint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
