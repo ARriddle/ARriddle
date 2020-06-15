@@ -42,10 +42,10 @@ interface APIService {
     ): Deferred<List<KeypointProperty>>
 
     @GET("games/{game_id}/keypoints/{keypoint_id}")
-    fun getKeypointsAsync(
+    fun getKeypointAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
-        @Path(value = "keypoint_id", encoded = true) keypoint_id: String
-    ): Deferred<List<KeypointProperty>>
+        @Path(value = "keypoint_id", encoded = true) keypoint_id: Int
+    ): Deferred<KeypointProperty>
 
     @GET("games/{game_id}/users")
     fun getUsersAsync(
