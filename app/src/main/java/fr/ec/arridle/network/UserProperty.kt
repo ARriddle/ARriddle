@@ -11,3 +11,5 @@ data class UserProperty(
 )
 
 data class PutUserProperty(val name: String)
+
+data class PutPointsUserProperty(val points: Int)

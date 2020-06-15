@@ -115,6 +115,13 @@ interface APIService {
         @Body user: PutUserProperty
     ): Deferred<UserProperty>
 
+    @PUT("games/{game_id}/users/{user_id}")
+    fun putPointsUserAsync(
+        @Path(value = "game_id", encoded = true) game_id: String,
+        @Path(value = "user_id", encoded = true) user_id: Int,
+        @Body user: PutPointsUserProperty
+    ): Deferred<UserProperty>
+
 }
 
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -14,10 +13,7 @@ import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.adapters.GameAdapter
 import fr.ec.arridle.databinding.FragmentMainBinding
-import fr.ec.arridle.network.API
 import fr.ec.arridle.randomPseudo
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 /**

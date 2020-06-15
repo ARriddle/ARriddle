@@ -3,23 +3,23 @@ package fr.ec.arridle.fragments.user
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.*
-import fr.ec.arridle.network.API
-import fr.ec.arridle.network.KeypointProperty
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import fr.ec.arridle.findUserById
+import fr.ec.arridle.network.*
+import kotlinx.coroutines.*
 
-class KeypointViewModel( keypointId: Int,
-                       app: Application
-) : AndroidViewModel(app) {
+class KeypointViewModel(keypointId: Int, app: Application) : AndroidViewModel(app) {
 
     // The internal MutableLiveData for the selected property
     private val _keypointProperty = MutableLiveData<KeypointProperty>()
 
+    private val _user = MutableLiveData<UserProperty>()
+
     // The external LiveData for the SelectedProperty
     val keypointProperty: LiveData<KeypointProperty>
         get() = _keypointProperty
+
+    val user: LiveData<UserProperty>
+        get() = _user
 
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(
@@ -30,13 +30,18 @@ class KeypointViewModel( keypointId: Int,
     // Initialize the _selectedProperty MutableLiveData
     init {
         getKeypointProperty(keypointId)
+        getUserProperties()
     }
+
     private fun getKeypointProperty(keypointId: Int) {
         coroutineScope.launch {
-            val sharedPref = getApplication<Application>().getSharedPreferences("connection",
-                Context.MODE_PRIVATE)
+            val sharedPref = getApplication<Application>().getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
             val gameId = sharedPref.getString("game_id", null)
-            val keypoint = API.retrofitService.getKeypointAsync(game_id = gameId!!, keypoint_id = keypointId)
+            val keypoint =
+                API.retrofitService.getKeypointAsync(game_id = gameId!!, keypoint_id = keypointId)
 
             try {
                 val getKeypoint = keypoint.await()
@@ -47,6 +52,40 @@ class KeypointViewModel( keypointId: Int,
             }
         }
     }
+
+    private fun getUserProperties() {
+        coroutineScope.launch {
+            val sharedPref = getApplication<Application>().getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
+            val gameId = sharedPref.getString("game_id", null)
+            val userId = sharedPref.getInt("user_id", -1)
+            val users = API.retrofitService.getUserAsync(game_id = gameId!!, user_id = userId)
+
+            try {
+                val user = users.await()
+                _user.value = user
+            } catch (e: Exception) {
+                _user.value = null
+                e.printStackTrace()
+            }
+        }
+    }
+    suspend fun putUserProperties(gameId: String?, userId: Int?, points: Int){
+        coroutineScope {
+            launch {
+                val put =
+                    API.retrofitService.putPointsUserAsync(game_id = gameId!!, user_id = userId!!, user = PutPointsUserProperty(points))
+                try {
+                    val p = put.await()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
 
     override fun onCleared() {
         super.onCleared()
