@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 class MainViewModel : ViewModel() {
     // The internal MutableLiveData String that stores the most recent response
     private val _properties = MutableLiveData<List<GameProperty>>()
-
     // The external immutable LiveData for the response String
 
     val properties: LiveData<List<GameProperty>>
@@ -23,6 +22,7 @@ class MainViewModel : ViewModel() {
     private val coroutineScope = CoroutineScope(
         viewModelJob + Dispatchers.Main
     )
+
 
     init {
         getGameProperties()
