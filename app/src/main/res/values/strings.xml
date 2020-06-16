@@ -21,6 +21,7 @@
     <string name="content_description_compass">Un compas</string>
     <string name="content_description_avatar">avatar de profil</string>
     <string name="content_description_light">Une amppoule</string>
+    <string name="content_description_validate">Image validation</string>
 
 
     <!-- nav drawer labels -->
@@ -88,7 +89,6 @@
     <!-- errors -->
     <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
     <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
-
 
 
 </resources>

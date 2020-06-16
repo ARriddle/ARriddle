@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.network.API
 import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.SolveProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,6 +18,7 @@ import kotlinx.coroutines.launch
 class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(application) {
     // The internal MutableLiveData String that stores the most recent response
     private val _properties = MutableLiveData<List<KeypointProperty>>()
+    private val _solves = MutableLiveData<List<SolveProperty>>()
 
     // The external immutable LiveData for the response String
 
@@ -27,7 +29,8 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
     private val _navigateToSelectedKeypoint = MutableLiveData<KeypointProperty>()
     val navigateToSelectedKeypoint: LiveData<KeypointProperty>
         get() = _navigateToSelectedKeypoint
-
+    val solves: LiveData<List<SolveProperty>>
+        get() = _solves
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(
         viewModelJob + Dispatchers.Main
@@ -35,11 +38,15 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
 
     init {
         getKeypointsProperties()
+        getSolvesProperties()
     }
 
     private fun getKeypointsProperties() {
         coroutineScope.launch {
-            val sharedPref = getApplication<Application>().getSharedPreferences("connection",Context.MODE_PRIVATE)
+            val sharedPref = getApplication<Application>().getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
             val gameId = sharedPref.getString("game_id", null)
             val getKeypointsDeferred = API.retrofitService.getKeypointsAsync(game_id = gameId!!)
 
@@ -48,6 +55,26 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
                 _properties.value = listResult
             } catch (e: Exception) {
                 _properties.value = ArrayList()
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun getSolvesProperties() {
+        coroutineScope.launch {
+            val sharedPref = getApplication<Application>().getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
+            val gameId = sharedPref.getString("game_id", null)
+            val solves = API.retrofitService.getSolvesAsync(game_id = gameId!!)
+
+            try {
+                val listResult = solves.await()
+                _solves.value = listResult
+
+            } catch (e: Exception) {
+                _solves.value = null
                 e.printStackTrace()
             }
         }

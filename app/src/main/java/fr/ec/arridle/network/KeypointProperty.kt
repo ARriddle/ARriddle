@@ -5,10 +5,14 @@ import com.squareup.moshi.Json
 data class KeypointProperty (
     val id: Int,
     val name: String,
+    val description: String,
+    val solution: String,
     val points: Int,
     @Json(name = "url_cible") val urlCible: String,
     val latitude: Double,
     val longitude: Double,
-    @Json(name = "users_solvers") val usersSolvers: List<UserProperty> = emptyList(),
-    @Json(name = "game_id") val gameId: String
+    @Json(name = "game_id") val gameId: String,
+
+    // To help the display of green validation in list keypoint
+    var isValidate: Boolean = false
 )

@@ -17,9 +17,9 @@
 
         <ImageView
             android:id="@+id/imageView9"
-            android:layout_width="171dp"
-            android:layout_height="147dp"
-            android:layout_marginBottom="24dp"
+            android:layout_width="151dp"
+            android:layout_height="127dp"
+            android:layout_marginBottom="64dp"
             android:contentDescription="@string/content_description_light"
             android:src="@drawable/ic_brain_by_skyclick"
             app:layout_constraintBottom_toTopOf="@+id/textView10"
@@ -32,11 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginBottom="20dp"
             android:text="@{viewModel.keypointProperty.name}"
             app:layout_constraintBottom_toTopOf="@+id/coords"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.535"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
@@ -45,11 +44,11 @@
             android:id="@+id/coords"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="4dp"
             android:text="@{String.valueOf(viewModel.keypointProperty.latitude)+'N'+' ' + String.valueOf(viewModel.keypointProperty.latitude)+'W'}"
             app:layout_constraintBottom_toTopOf="@+id/nbPoints"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -68,10 +67,11 @@
             style="@style/Title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="28dp"
             android:text="@string/label_description"
             app:layout_constraintBottom_toTopOf="@+id/description"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -79,7 +79,7 @@
             android:layout_width="352dp"
             android:layout_height="157dp"
             android:layout_marginBottom="24dp"
-            android:text=""
+            android:text="@{viewModel.keypointProperty.description}"
             app:layout_constraintBottom_toTopOf="@+id/editTextAnswer"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

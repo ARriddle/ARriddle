@@ -62,7 +62,17 @@
                     android:text="@{String.valueOf(property.points)+' '+'p'+'o'+'i'+'n'+'t'+'s' }"
                     android:textColor="@color/black" />
 
+
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                app:srcCompat="@drawable/ic_validate"
+                android:contentDescription="@string/content_description_validate"
+                android:visibility="@{property.isValidate ? View.VISIBLE : View.GONE}"/>
         </androidx.cardview.widget.CardView>
 
     </FrameLayout>

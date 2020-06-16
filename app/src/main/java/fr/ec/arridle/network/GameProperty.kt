@@ -5,6 +5,7 @@ import com.squareup.moshi.Json
 data class GameProperty(
     val id: String,
     val name: String,
+    val visibility: Boolean,
     val duration: Int,
     @Json(name = "time_start") val timeStart: Int,
     @Json(name = "nb_player_max") val nbPlayerMax: Int,

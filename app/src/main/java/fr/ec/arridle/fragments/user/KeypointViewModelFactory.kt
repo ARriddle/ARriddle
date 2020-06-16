@@ -3,7 +3,6 @@ package fr.ec.arridle.fragments.user
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import fr.ec.arridle.network.KeypointProperty
 
 /**
  * Simple ViewModel factory that provides the MarsProperty and context to the ViewModel.

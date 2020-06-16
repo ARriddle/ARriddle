@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:text="@{property.name}"
+                    android:text="@{String.valueOf(property.duration / 3600)+'h'+ String.valueOf(property.duration / 60 % 60)+'m' + String.valueOf(property.duration % 60)+'s'}"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:text="@{property.name}"
+                    android:text="@{String.valueOf(property.users.size())+' '+'j'+'o'+'u'+'e'+'u'+'r'+'s'+' '+'e'+'n'+' '+'l'+'i'+'g'+'n'+'e'}"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:padding="1dp"
-                    android:text="@{property.name}"
+                    android:text="@{String.valueOf(property.nbPlayerMax)+' '+ 'j'+'o'+'u'+'e'+'u'+'r'+'s'+' '+'m'+'a'+'x'}"
                     android:textColor="@color/black" />
 
             </LinearLayout>
