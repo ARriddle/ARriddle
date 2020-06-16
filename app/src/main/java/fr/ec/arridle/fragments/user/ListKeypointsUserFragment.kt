@@ -1,6 +1,5 @@
 package fr.ec.arridle.fragments.user
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.util.Log

@@ -60,7 +60,7 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
         }
     }
 
-    fun getSolvesProperties() {
+     fun getSolvesProperties() {
         coroutineScope.launch {
             val sharedPref = getApplication<Application>().getSharedPreferences(
                 "connection",
