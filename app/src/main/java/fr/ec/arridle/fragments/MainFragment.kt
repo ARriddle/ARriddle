@@ -76,7 +76,10 @@ class MainFragment : Fragment() {
             val action = MainFragmentDirections.actionMainFragmentToCreateGameFragment()
             view?.findNavController()?.navigate(action)
         }
-
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getGameProperties()
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
         // Inflate the layout for this fragment
         return binding.root
     }

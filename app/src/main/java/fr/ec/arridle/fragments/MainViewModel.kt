@@ -33,7 +33,7 @@ class MainViewModel : ViewModel() {
         getGameProperties()
     }
 
-    private fun getGameProperties() {
+    fun getGameProperties() {
         coroutineScope.launch {
             val getPropertiesDeferred = API.retrofitService.getGamesAsync()
 

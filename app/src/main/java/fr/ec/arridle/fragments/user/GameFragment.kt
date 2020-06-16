@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.adapters.KeypointAdapter
 import fr.ec.arridle.databinding.FragmentShowGameBinding
+import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.SolveProperty
 
 class GameFragment : Fragment() {
 
@@ -43,6 +45,11 @@ class GameFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
+
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getKeypointsProperties()
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
         return binding.root
     }
 }

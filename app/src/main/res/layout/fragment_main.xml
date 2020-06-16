@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="fr.ec.arridle.fragments.MainViewModel" />
@@ -37,8 +38,8 @@
                     android:layout_width="@dimen/icon_card_size"
                     android:layout_height="@dimen/icon_card_size"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/join_game"
-                    android:contentDescription="@string/content_description_join_game" />
+                    android:contentDescription="@string/content_description_join_game"
+                    app:srcCompat="@drawable/join_game" />
 
             </androidx.cardview.widget.CardView>
 
@@ -60,8 +61,8 @@
                     android:layout_width="@dimen/icon_card_size"
                     android:layout_height="@dimen/icon_card_size"
                     android:layout_gravity="center"
-                    app:srcCompat="@drawable/create_game"
-                    android:contentDescription="@string/content_description_create_game" />
+                    android:contentDescription="@string/content_description_create_game"
+                    app:srcCompat="@drawable/create_game" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -106,22 +107,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/labelCreateGame"
                 app:layout_constraintVertical_bias="0.03" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/game_list"
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/itemsswipetorefresh"
                 android:layout_width="match_parent"
                 android:layout_height="413dp"
-                android:clipToPadding="false"
                 android:layout_marginTop="48dp"
-
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:clipToPadding="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/labelCurrentGames"
-                app:listGame="@{viewModel.properties}"
-                tools:listitem="@layout/item_game"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/labelCurrentGames">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/game_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
 
+                    app:listGame="@{viewModel.properties}"
+                    tools:listitem="@layout/item_game" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
