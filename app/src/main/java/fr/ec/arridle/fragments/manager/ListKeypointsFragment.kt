@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.adapters.KeypointAdapter
@@ -31,7 +30,7 @@ class ListKeypointsFragment : Fragment() {
             KeypointAdapter(KeypointAdapter.OnClickListener { //viewModel.displayKeypointDetails(it)
             })
 
-
+/*
         viewModel.navigateToSelectedKeypoint.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 // Must find the NavController from the Fragment
@@ -43,6 +42,14 @@ class ListKeypointsFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
+        */
+
+        binding.chessKeypointPicture.setOnClickListener {
+            this.findNavController().navigate(
+                ListKeypointsFragmentDirections.actionListKeypointsFragmentToCreateKeypointFragment(
+                )
+            )
+        }
 
         binding.itemsswipetorefresh.setOnRefreshListener {
             viewModel.getKeypointsProperties()
