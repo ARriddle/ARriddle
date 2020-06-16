@@ -66,6 +66,17 @@ class ListKeypointsUserFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
+
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getKeypointsProperties()
+            viewModel.getSolvesProperties()
+            val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
+            val keypoints: List<KeypointProperty>? = viewModel.properties.value
+            keypoints?.forEach { it.isValidate =
+                solves?.any { keypoint -> it.id == keypoint.keypointId }!!
+            }
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
         // Inflate the layout for this fragment
         return binding.root
     }

@@ -22,6 +22,8 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as MainActivity).createNavDrawer()
+
         val binding = FragmentShowGameBinding.inflate(inflater)
 
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
@@ -41,7 +43,6 @@ class GameFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
-        (activity as MainActivity).createNavDrawer()
         return binding.root
     }
 }
