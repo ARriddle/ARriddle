@@ -11,5 +11,8 @@ data class KeypointProperty (
     @Json(name = "url_cible") val urlCible: String,
     val latitude: Double,
     val longitude: Double,
-    @Json(name = "game_id") val gameId: String
+    @Json(name = "game_id") val gameId: String,
+
+    // To help the display of green validation in list keypoint
+    var isValidate: Boolean = false
 )

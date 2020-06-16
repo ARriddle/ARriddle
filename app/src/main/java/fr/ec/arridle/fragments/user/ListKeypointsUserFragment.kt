@@ -1,5 +1,7 @@
 package fr.ec.arridle.fragments.user
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +13,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.adapters.KeypointAdapter
 import fr.ec.arridle.databinding.FragmentListKeypointsUserBinding
+import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.SolveProperty
 
 class ListKeypointsUserFragment : Fragment() {
 
@@ -30,6 +34,25 @@ class ListKeypointsUserFragment : Fragment() {
         binding.keypointsView.adapter =
             KeypointAdapter(KeypointAdapter.OnClickListener { viewModel.displayKeypointDetails(it) })
 
+        // On met à jour les points clé avec un éventuelle validation
+        val sharedPref = activity?.getSharedPreferences(
+            "connection",
+            Context.MODE_PRIVATE
+        )
+        val gameId = sharedPref?.getString("game_id", null)
+        val userId = sharedPref?.getInt("user_id", -1)
+
+
+        viewModel.solves.observe(viewLifecycleOwner, Observer {
+            val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
+            val keypoints: List<KeypointProperty>? = viewModel.properties.value
+            Log.i("azer", solves.toString())
+            Log.i("azer", keypoints.toString())
+            keypoints?.forEach { it.isValidate =
+                solves?.any { keypoint -> it.id == keypoint.keypointId }!!
+            }
+
+        })
 
         viewModel.navigateToSelectedKeypoint.observe(viewLifecycleOwner, Observer {
             if (null != it) {
