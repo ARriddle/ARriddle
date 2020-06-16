@@ -45,7 +45,11 @@
         android:id="@+id/mapFragment"
         android:name="fr.ec.arridle.fragments.manager.MapFragment"
         android:label="fragment_map"
-        tools:layout="@layout/fragment_map" />
+        tools:layout="@layout/fragment_map" >
+        <action
+            android:id="@+id/action_mapFragment_to_keypointFragment"
+            app:destination="@id/keypointFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listKeypointsFragment"
         android:name="fr.ec.arridle.fragments.manager.ListKeypointsFragment"
@@ -145,7 +149,11 @@
         android:id="@+id/mapUserFragment"
         android:name="fr.ec.arridle.fragments.user.MapUserFragment"
         android:label="fragment_map_user"
-        tools:layout="@layout/fragment_map_user" />
+        tools:layout="@layout/fragment_map_user" >
+        <action
+            android:id="@+id/action_mapUserFragment_to_keypointFragment"
+            app:destination="@id/keypointFragment" />
+    </fragment>
     <fragment
         android:id="@+id/leaderboardUserFragment"
         android:name="fr.ec.arridle.fragments.user.LeaderboardUserFragment"

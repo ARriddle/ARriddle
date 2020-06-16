@@ -14,6 +14,9 @@ import fr.ec.arridle.adapters.KeypointAdapter
 import fr.ec.arridle.databinding.FragmentListKeypointsUserBinding
 import fr.ec.arridle.network.KeypointProperty
 import fr.ec.arridle.network.SolveProperty
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ListKeypointsUserFragment : Fragment() {
 
@@ -67,14 +70,16 @@ class ListKeypointsUserFragment : Fragment() {
         })
 
         binding.itemsswipetorefresh.setOnRefreshListener {
-            viewModel.getKeypointsProperties()
-            viewModel.getSolvesProperties()
-            val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
-            val keypoints: List<KeypointProperty>? = viewModel.properties.value
-            keypoints?.forEach { it.isValidate =
-                solves?.any { keypoint -> it.id == keypoint.keypointId }!!
+            CoroutineScope(Dispatchers.Main).launch {
+                viewModel.getKeypointsProperties()
+                viewModel.getSolvesProperties()
+                val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
+                val keypoints: List<KeypointProperty>? = viewModel.properties.value
+                keypoints?.forEach { it.isValidate =
+                    solves?.any { keypoint -> it.id == keypoint.keypointId }!!
+                }
+                binding.itemsswipetorefresh.isRefreshing = false
             }
-            binding.itemsswipetorefresh.isRefreshing = false
         }
         // Inflate the layout for this fragment
         return binding.root
