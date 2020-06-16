@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         // On vérifie si une connexion est déjà en cours
         val sharedPref = this.getSharedPreferences("connection", Context.MODE_PRIVATE)
         when (sharedPref.getString("status", null)) {
-            "manager" -> {}
+            "manager" -> {
+                graph.startDestination = R.id.manageGameFragment
+            }
             "user" -> {
                 graph.startDestination = R.id.gameFragment
             }

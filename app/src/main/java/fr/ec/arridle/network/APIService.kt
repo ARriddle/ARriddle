@@ -86,10 +86,10 @@ interface APIService {
         @Query("longitude") longitude : Double? = null
     ): Deferred<KeypointProperty>
 
-    @POST("games/{game_id}")
+    @POST("games")
     fun postGameAsync(
-        @Path(value = "game_id", encoded = true) game_id: String,
         @Query("name") name: String,
+        @Query("visibility") visibility: Boolean,
         @Query("duration") duration: Int,
         @Query("time_start") timeStart: Int? = null,
         @Query("nb_player_max") nbPlayerMax: Int? = null

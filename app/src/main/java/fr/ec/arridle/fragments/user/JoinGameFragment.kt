@@ -65,6 +65,7 @@ class JoinGameFragment : Fragment() {
                             userId.value?.let { it1 -> this?.putInt("user_id", it1) }
                             this?.apply()
                         } catch (e: java.lang.Exception) {
+                            e.printStackTrace()
                         }
                     }
 
