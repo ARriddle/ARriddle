@@ -1,139 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.manager.CreateKeypointFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/keypoint_solution_text"
-        android:layout_width="79dp"
-        android:layout_height="23dp"
-        android:layout_marginBottom="48dp"
-        android:text="Solution"
-        app:layout_constraintBottom_toTopOf="@+id/editTextSolution"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
-        app:layout_constraintStart_toEndOf="@+id/keypoint_nb_point_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    <data>
 
-    <TextView
-        android:id="@+id/keypoint_create_text"
-        style="@style/Title_1"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center_horizontal"
-        android:text="@string/label_create_keypoint"
-        app:layout_constraintBottom_toTopOf="@+id/chest_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="viewModel"
+            type="fr.ec.arridle.fragments.manager.CreateKeypointViewModel" />
 
-    <TextView
-        android:id="@+id/keypoint_name_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="@string/label_keypoint_name"
-        app:layout_constraintBottom_toTopOf="@+id/ediTextName"
-        app:layout_constraintEnd_toStartOf="@+id/keypoint_nb_point_text"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    </data>
 
-    <TextView
-        android:id="@+id/keypoint_nb_point_text"
-        android:layout_width="61dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="8dp"
-        android:text="Nombre de points"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPoints"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.597"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.manager.CreateKeypointFragment">
 
-    <EditText
-        android:id="@+id/editTextDescription"
-        android:layout_width="353dp"
-        android:layout_height="178dp"
-        android:layout_marginBottom="92dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.586"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/keypoint_solution_text"
+            android:layout_width="79dp"
+            android:layout_height="23dp"
+            android:layout_marginBottom="48dp"
+            android:text="Solution"
+            app:layout_constraintBottom_toTopOf="@+id/editTextSolution"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.63"
+            app:layout_constraintStart_toEndOf="@+id/keypoint_nb_point_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
-        android:id="@+id/ediTextName"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPoints"
-        app:layout_constraintHorizontal_bias="0.586"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/keypoint_create_text"
+            style="@style/Title_1"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center_horizontal"
+            android:text="@string/label_create_keypoint"
+            app:layout_constraintBottom_toTopOf="@+id/chest_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextPoints"
-        android:layout_width="68dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="36dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ediTextName"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/keypoint_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:text="@string/label_keypoint_name"
+            app:layout_constraintBottom_toTopOf="@+id/ediTextName"
+            app:layout_constraintEnd_toStartOf="@+id/keypoint_nb_point_text"
+            app:layout_constraintHorizontal_bias="0.546"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <EditText
-        android:id="@+id/editTextSolution"
-        android:layout_width="85dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toEndOf="@+id/editTextPoints"
-        app:layout_constraintTop_toTopOf="@+id/editTextPoints"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/keypoint_nb_point_text"
+            android:layout_width="61dp"
+            android:layout_height="37dp"
+            android:layout_marginBottom="8dp"
+            android:text="Nombre de points"
+            app:layout_constraintBottom_toTopOf="@+id/editTextPoints"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.597"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.918" />
 
-    <ImageView
-        android:id="@+id/chest_image"
-        android:layout_width="123dp"
-        android:layout_height="104dp"
-        android:layout_marginBottom="32dp"
-        android:contentDescription="@string/content_description_chest"
-        android:src="@drawable/ic_treasure_chest_by_dara_flaticon"
-        app:layout_constraintBottom_toTopOf="@+id/keypoint_nb_point_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="353dp"
+            android:layout_height="178dp"
+            android:layout_marginBottom="92dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="345dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="16dp"
-        android:text="Description"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/ediTextName"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="36dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/editTextPoints"
+            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextPoints"
+            android:layout_width="68dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="36dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.585"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ediTextName"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/editTextSolution"
+            android:layout_width="85dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.606"
+            app:layout_constraintStart_toEndOf="@+id/editTextPoints"
+            app:layout_constraintTop_toTopOf="@+id/editTextPoints"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/chest_image"
+            android:layout_width="123dp"
+            android:layout_height="104dp"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="@string/content_description_chest"
+            android:src="@drawable/ic_treasure_chest_by_dara_flaticon"
+            app:layout_constraintBottom_toTopOf="@+id/keypoint_nb_point_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="345dp"
+            android:layout_height="44dp"
+            android:layout_marginBottom="16dp"
+            android:text="Description"
+            app:layout_constraintBottom_toTopOf="@+id/editTextDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

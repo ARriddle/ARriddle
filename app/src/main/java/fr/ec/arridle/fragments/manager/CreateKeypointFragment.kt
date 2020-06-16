@@ -1,18 +1,55 @@
 package fr.ec.arridle.fragments.manager
 
+import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import fr.ec.arridle.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import fr.ec.arridle.databinding.FragmentCreateKeypointBinding
+import kotlinx.coroutines.runBlocking
 
 class CreateKeypointFragment : Fragment() {
+    private val viewModel: CreateKeypointViewModel by lazy {
+        ViewModelProvider(this).get(CreateKeypointViewModel::class.java)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_keypoint, container, false)
+        val binding = FragmentCreateKeypointBinding.inflate(inflater)
+
+        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
+        binding.lifecycleOwner = this
+
+        binding.viewModel = viewModel
+        val sharedPref = activity?.getSharedPreferences(
+            "connection",
+            Context.MODE_PRIVATE
+        )
+        val gameId = sharedPref?.getString("game_id", null)
+        binding.chestImage.setOnClickListener {
+            val name = binding.ediTextName.text.toString()
+            val description = binding.editTextDescription.text.toString()
+            val solution = binding.editTextSolution.text.toString()
+            val points = binding.editTextPoints.text.toString().toInt()
+            runBlocking {
+                viewModel.postKeypointProperties(
+                    name = name,
+                    description = description,
+                    solution = solution,
+                    points = points,
+                    gameId = gameId!!
+                )
+            }
+            view?.findNavController()?.navigateUp()
+
+        }
+
+        return binding.root
     }
 }
