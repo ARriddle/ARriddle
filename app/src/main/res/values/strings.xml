@@ -66,6 +66,8 @@
     <string name="label_answer">Votre réponse</string>
     <string name="label_vocal">Vocal</string>
     <string name="label_send_answer">Envoyer</string>
+    <string name="label_visibility">Partie publique ?</string>
+    <string name="label_end_game">Terminer la partie</string>
 
 
     <!--test layouts --> <string name="nav_drawer_test">Test layout</string>
@@ -89,6 +91,7 @@
     <!-- errors -->
     <string name="error_game_id_doesnt_exist">ERREUR : l\'identifiant saisi n\'existe pas</string>
     <string name="error_game_id_format">ERREUR : un identifiant est composé de 8 caractères alphanumériques</string>
+
 
 
 </resources>

@@ -41,17 +41,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/keypoints_title" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/keypoints_view"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/itemsswipetorefresh"
             android:layout_width="369dp"
             android:layout_height="506dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chess_keypoint_picture"
-            app:listKeypoints="@{viewModel.properties}"
-            tools:listitem="@layout/item_keypoint" />
+            app:layout_constraintTop_toBottomOf="@+id/chess_keypoint_picture">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/keypoints_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:listKeypoints="@{viewModel.properties}"
+                tools:listitem="@layout/item_keypoint" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

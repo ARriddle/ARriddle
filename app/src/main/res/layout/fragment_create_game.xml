@@ -1,140 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.manager.CreateGameFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <EditText
-        android:id="@+id/editStartingDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/edit_starting_date"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startingDate"
-        tools:ignore="LabelFor" />
+    <data>
+        <variable
+            name="viewModel"
+            type="fr.ec.arridle.fragments.manager.CreateGameViewModel" />
 
-    <EditText
-        android:id="@+id/editStartingTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/edit_duration"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editStartingDate" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.manager.CreateGameFragment">
 
-    <TextView
-        android:id="@+id/duration"
-        style="@style/SubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/label_duration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editStartingTime" />
+        <EditText
+            android:id="@+id/editStartingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/edit_starting_date"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/startingDate"
+            tools:ignore="LabelFor" />
 
-    <EditText
-        android:id="@+id/editDuration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/edit_duration"
-        android:inputType="time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/duration" />
+        <EditText
+            android:id="@+id/editStartingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/edit_duration"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editStartingDate" />
 
-    <Button
-        android:id="@+id/buttonCreateGame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/label_create_game2"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDuration" />
+        <TextView
+            android:id="@+id/duration"
+            style="@style/SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/label_duration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editStartingTime" />
 
-    <TextView
-        android:id="@+id/startingDate"
-        style="@style/SubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/label_starting_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNbPlayers" />
+        <EditText
+            android:id="@+id/editDuration"
+            android:layout_width="192dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/edit_duration"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/duration" />
 
-    <TextView
-        android:id="@+id/gameNameText"
-        style="@style/Title_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/label_game_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/buttonCreateGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/label_create_game2"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editDuration" />
 
-    <EditText
-        android:id="@+id/editGameName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/edit_game_name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameNameText"
-        tools:ignore="LabelFor" />
+        <TextView
+            android:id="@+id/startingDate"
+            style="@style/SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/label_starting_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editNbPlayers" />
 
-    <TextView
-        android:id="@+id/nbPlayers"
-        style="@style/SubTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/label_nb_players"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editGameName" />
+        <TextView
+            android:id="@+id/gameNameText"
+            style="@style/Title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/label_game_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editNbPlayers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:fontFamily="@font/roboto"
-        android:hint="@string/edit_nb_players"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nbPlayers" />
+        <EditText
+            android:id="@+id/editGameName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/edit_game_name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gameNameText"
+            tools:ignore="LabelFor" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/nbPlayers"
+            style="@style/SubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/label_nb_players"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editGameName" />
+
+        <EditText
+            android:id="@+id/editNbPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/edit_nb_players"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nbPlayers" />
+
+        <CheckBox
+            android:id="@+id/publicGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/label_visibility"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/duration" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

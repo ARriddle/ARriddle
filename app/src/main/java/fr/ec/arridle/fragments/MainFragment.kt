@@ -59,7 +59,7 @@ class MainFragment : Fragment() {
 
                 // Must find the NavController from the Fragment
                 this.findNavController().navigate(
-                    MainFragmentDirections.actionMainFragmentToGameFragment(arg1="refresh"
+                    MainFragmentDirections.actionMainFragmentToGameFragment("refresh"
                     )
                 )
                 // Tell the ViewModel we've made the navigate call to prevent multiple navigation

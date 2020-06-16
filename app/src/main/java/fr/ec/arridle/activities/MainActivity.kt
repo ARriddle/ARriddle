@@ -2,7 +2,6 @@ package fr.ec.arridle.activities
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -32,7 +31,9 @@ class MainActivity : AppCompatActivity() {
         // On vérifie si une connexion est déjà en cours
         val sharedPref = this.getSharedPreferences("connection", Context.MODE_PRIVATE)
         when (sharedPref.getString("status", null)) {
-            "manager" -> {}
+            "manager" -> {
+                graph.startDestination = R.id.manageGameFragment
+            }
             "user" -> {
                 graph.startDestination = R.id.gameFragment
             }

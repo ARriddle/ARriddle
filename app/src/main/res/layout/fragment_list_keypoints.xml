@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="fr.ec.arridle.fragments.manager.ListKeypointsViewModel" />
@@ -12,18 +13,50 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.manager.ListKeypointsFragment">
+        tools:context=".fragments.user.ListKeypointsFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/keypoints_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+
+        <TextView
+            android:id="@+id/keypoints_title"
+            style="@style/Title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_keypoint_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.064" />
+
+        <ImageView
+            android:id="@+id/chess_keypoint_picture"
+            android:layout_width="124dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/content_description_chest"
+            android:src="@drawable/ic_treasure_chest_by_dara_flaticon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/keypoints_title" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/itemsswipetorefresh"
+            android:layout_width="369dp"
+            android:layout_height="506dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent"
-            app:listKeypoints="@{viewModel.properties}"
-            tools:listitem="@layout/item_keypoint" />
+            app:layout_constraintTop_toBottomOf="@+id/chess_keypoint_picture">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/keypoints_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:listKeypoints="@{viewModel.properties}"
+                tools:listitem="@layout/item_keypoint" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

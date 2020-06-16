@@ -2,12 +2,14 @@ package fr.ec.arridle.fragments.manager
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.network.API
 import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.SolveProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -22,6 +24,11 @@ class ListKeypointsViewModel(application: Application) : AndroidViewModel(applic
     val properties: LiveData<List<KeypointProperty>>
         get() = _properties
 
+    // LiveData to handle navigation to the selected property
+    private val _navigateToSelectedKeypoint = MutableLiveData<KeypointProperty>()
+    val navigateToSelectedKeypoint: LiveData<KeypointProperty>
+        get() = _navigateToSelectedKeypoint
+
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(
         viewModelJob + Dispatchers.Main
@@ -31,23 +38,46 @@ class ListKeypointsViewModel(application: Application) : AndroidViewModel(applic
         getKeypointsProperties()
     }
 
-    private fun getKeypointsProperties() {
+    fun getKeypointsProperties() {
         coroutineScope.launch {
-            val sharedPref = getApplication<Application>().getSharedPreferences("connection", Context.MODE_PRIVATE)
+            val sharedPref = getApplication<Application>().getSharedPreferences(
+                "connection",
+                Context.MODE_PRIVATE
+            )
             val gameId = sharedPref.getString("game_id", null)
+            Log.i("azer", gameId.toString())
             val getKeypointsDeferred = API.retrofitService.getKeypointsAsync(game_id = gameId!!)
 
             try {
                 val listResult = getKeypointsDeferred.await()
                 _properties.value = listResult
+                Log.i("azer", listResult.toString())
+
             } catch (e: Exception) {
                 _properties.value = ArrayList()
+                e.printStackTrace()
             }
         }
     }
 
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    /**
+     * When the property is clicked, set the [_navigateToSelectedProperty] [MutableLiveData]
+     * @param keypointProperty The [keypointProperty] that was clicked on.
+     */
+    fun displayKeypointDetails(keypointProperty: KeypointProperty) {
+        _navigateToSelectedKeypoint.value = keypointProperty
+    }
+
+    /**
+     * After the navigation has taken place, make sure navigateToSelectedProperty is set to null
+     */
+    fun displayKeypointDetailsComplete() {
+        _navigateToSelectedKeypoint.value = null
     }
 }

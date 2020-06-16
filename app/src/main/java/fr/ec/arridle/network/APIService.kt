@@ -80,16 +80,18 @@ interface APIService {
     fun postKeypointAsync(
         @Path(value = "game_id", encoded = true) game_id: String,
         @Query("name") name: String,
+        @Query("description") description: String,
+        @Query("solution") solution: String,
         @Query("points") points: Int = 0,
         @Query("url_cible") urlCible: String? = null,
         @Query("latitude") latitude : Double? = null ,
         @Query("longitude") longitude : Double? = null
     ): Deferred<KeypointProperty>
 
-    @POST("games/{game_id}")
+    @POST("games")
     fun postGameAsync(
-        @Path(value = "game_id", encoded = true) game_id: String,
         @Query("name") name: String,
+        @Query("visibility") visibility: Boolean,
         @Query("duration") duration: Int,
         @Query("time_start") timeStart: Int? = null,
         @Query("nb_player_max") nbPlayerMax: Int? = null

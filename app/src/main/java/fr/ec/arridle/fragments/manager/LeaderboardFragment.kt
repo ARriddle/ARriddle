@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import fr.ec.arridle.adapters.UserAdapter
 import fr.ec.arridle.databinding.FragmentLeaderboardBinding
+import fr.ec.arridle.databinding.FragmentLeaderboardUserBinding
 
 class LeaderboardFragment : Fragment() {
+
     private val viewModel: LeaderboardViewModel by lazy {
         ViewModelProvider(this).get(LeaderboardViewModel::class.java)
     }
@@ -29,5 +31,4 @@ class LeaderboardFragment : Fragment() {
         // Inflate the layout for this fragment
         return binding.root
     }
-
 }

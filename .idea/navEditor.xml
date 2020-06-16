@@ -46,8 +46,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1685" />
-                            <option name="y" value="521" />
+                            <option name="x" value="1645" />
+                            <option name="y" value="203" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -76,17 +76,12 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_gameFragment_to_leaderboardUserFragment">
+                            <entry key="action_gameFragment_to_keypointFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                             <entry key="action_gameFragment_to_listKeypointsUserFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_gameFragment_to_profileFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -158,8 +153,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1458" />
-                            <option name="y" value="508" />
+                            <option name="x" value="1362" />
+                            <option name="y" value="208" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -264,6 +259,11 @@
                               </value>
                             </entry>
                             <entry key="action_manageGameFragment_to_listUsersFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_manageGameFragment_to_mainFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
