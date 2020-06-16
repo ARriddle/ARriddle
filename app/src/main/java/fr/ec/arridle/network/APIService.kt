@@ -61,7 +61,7 @@ interface APIService {
         @Path(value = "user_id", encoded = true) user_id: Int
     ): Deferred<UserProperty>
 
-    @GET("games/{game_id}/solves}")
+    @GET("games/{game_id}/solves")
     fun getSolvesAsync(
         @Path(value = "game_id", encoded = true) game_id: String
     ): Deferred<List<SolveProperty>>

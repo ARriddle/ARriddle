@@ -2,6 +2,7 @@ package fr.ec.arridle.fragments.user
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,21 +30,26 @@ class KeypointFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(KeypointViewModel::class.java)
 
         binding.buttonSend.setOnClickListener {
+            (binding.viewModel as KeypointViewModel).getSolvesProperties()
             val sharedPref = activity?.getSharedPreferences(
                 "connection",
                 Context.MODE_PRIVATE
             )
             val gameId = sharedPref?.getString("game_id", null)
             val userId = sharedPref?.getInt("user_id", -1)
-            val hasBeenResolved = ((binding.viewModel as KeypointViewModel).solves.value?.filter { it.keypointId == keypointId && it.userId == userId }).isNullOrEmpty()
-            if (hasBeenResolved) {
-                Toast.makeText(
-                    activity,
-                    "Vosu avez déjà résolu le point d'intérêt !",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                if (binding.editTextAnswer.text.toString() == (binding.viewModel as KeypointViewModel).keypointProperty.value!!.solution) {
+            Log.i("azer", (binding.viewModel as KeypointViewModel).solves.value.toString())
+            val hasBeenResolved =
+                !(((binding.viewModel as KeypointViewModel).solves.value?.filter { it.keypointId == keypointId && it.userId == userId }).isNullOrEmpty())
+
+            if (binding.editTextAnswer.text.toString() == (binding.viewModel as KeypointViewModel).keypointProperty.value!!.solution) {
+                if (hasBeenResolved) {
+                    Toast.makeText(
+                        activity,
+                        "Vous avez déjà résolu le point d'intérêt !",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+
                     val points =
                         (binding.viewModel as KeypointViewModel).user.value!!.points + (binding.viewModel as KeypointViewModel).keypointProperty.value!!.points
 
@@ -65,17 +71,18 @@ class KeypointFragment : Fragment() {
                         "Bravo vous marquez ${(binding.viewModel as KeypointViewModel).keypointProperty.value!!.points} points",
                         Toast.LENGTH_SHORT
                     ).show()
-
-                } else {
-                    Toast.makeText(
-                        activity,
-                        "Ce n'est pas la réponse attendue.",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
                 }
+
+            } else {
+                Toast.makeText(
+                    activity,
+                    "Ce n'est pas la réponse attendue.",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
             }
         }
+
 
         return binding.root
     }
