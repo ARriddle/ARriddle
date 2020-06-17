@@ -53,8 +53,10 @@ class CreateKeypointFragment : Fragment() {
 
         }
 
-        (arguments?.get("coordinates") as LatLng).let {
-            coordinates = it
+        val givenCoords = arguments?.get("coordinates")
+
+        if (givenCoords != null) {
+            coordinates = givenCoords as LatLng
         }
 
         return binding.root
