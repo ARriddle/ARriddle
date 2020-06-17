@@ -78,7 +78,7 @@
             style="@style/SubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="24dp"
             android:text="@{viewModel.property.name}"
             app:layout_constraintBaseline_toBaselineOf="@+id/pseudoText"
             app:layout_constraintStart_toEndOf="@+id/pseudoText" />
@@ -99,7 +99,7 @@
             style="@style/SubTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="40dp"
             android:text="@{String.valueOf(viewModel.property.points) +' '+'p'+'o'+'i'+'n'+'t'+'s'}"
             app:layout_constraintBaseline_toBaselineOf="@+id/scoreText"
             app:layout_constraintStart_toEndOf="@+id/scoreText" />
@@ -107,27 +107,30 @@
         <TextView
             android:id="@+id/rankText"
             style="@style/SubTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="42dp"
-            android:text="@{String.valueOf(viewModel.rank) + 'è'}"
-            app:layout_constraintBottom_toTopOf="@+id/messageText"
+            android:layout_width="100dp"
+            android:layout_height="92dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="@{viewModel.rank == 1 ? String.valueOf(viewModel.rank) + 'e'+'r': String.valueOf(viewModel.rank) +'è'}"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/scoreText"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintTop_toBottomOf="@+id/scoreText" />
 
         <TextView
             android:id="@+id/messageText"
-            style="@style/SubTitle"
+            style="@style/Title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="292dp"
+            android:layout_marginBottom="240dp"
             android:text="@string/label_received_messages"
             app:layout_constraintBottom_toTopOf="@+id/buttonLogout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.107"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.067"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rankText"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/buttonLogout"

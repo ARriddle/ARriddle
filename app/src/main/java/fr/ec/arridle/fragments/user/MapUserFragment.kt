@@ -64,7 +64,7 @@ class MapUserFragment : Fragment() {
 
             googleMap.setOnInfoWindowClickListener { marker ->
                 coroutineScope.launch {
-                    viewModel.getKeypointsProperties().forEach {
+                    viewModel.getKeypointsPropertiesSync().forEach {
                         if (it.name == marker.title) {
                             viewModel.displayKeypointDetails(it)
                         }
@@ -92,7 +92,7 @@ class MapUserFragment : Fragment() {
         var bounds = LatLngBounds.builder()
         var hasKeypoints = false
 
-        viewModel.getKeypointsProperties().forEach { kp ->
+        viewModel.getKeypointsPropertiesSync().forEach { kp ->
             hasKeypoints = true
 
             val pos = LatLng(

@@ -60,6 +60,8 @@ class KeypointAdapter(private val onClickListener: OnClickListener) :
         }
         holder.bind(keypointProperty)
     }
+
+
     /**
      * Custom listener that handles clicks on [RecyclerView] items.  Passes the [keypointId]
      * associated with the current item to the [onClick] function.

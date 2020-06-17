@@ -40,22 +40,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gamename" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/leaderboard"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/itemsswipetorefresh"
             android:layout_width="371dp"
             android:layout_height="424dp"
             android:layout_marginTop="36dp"
-
             android:layout_marginBottom="16dp"
             android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/leaderboardCup"
-            app:layout_constraintVertical_bias="0.0"
-            app:listLeaderboard="@{viewModel.properties}"
-            tools:listitem="@layout/item_user" />
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/leaderboard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:listLeaderboard="@{viewModel.properties}"
+                tools:listitem="@layout/item_user" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

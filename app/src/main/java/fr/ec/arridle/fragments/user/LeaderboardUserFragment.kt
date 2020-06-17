@@ -17,6 +17,7 @@ class LeaderboardUserFragment : Fragment() {
     private val viewModel: LeaderboardUserViewModel by lazy {
         ViewModelProvider(this).get(LeaderboardUserViewModel::class.java)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,8 +30,12 @@ class LeaderboardUserFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.leaderboard.adapter = UserAdapter()
-
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getGameProperties()
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
         // Inflate the layout for this fragment
         return binding.root
     }
+
 }

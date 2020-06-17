@@ -76,7 +76,7 @@ class MapFragment : Fragment() {
         var bounds = LatLngBounds.builder()
         var hasKeypoints = false
 
-        viewModel.getKeypointsProperties().forEach { kp ->
+        viewModel.getKeypointsPropertiesSync().forEach { kp ->
             hasKeypoints = true
 
             val pos = LatLng(

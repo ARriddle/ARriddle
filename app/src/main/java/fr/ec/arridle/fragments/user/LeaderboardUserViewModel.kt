@@ -57,7 +57,7 @@ class LeaderboardUserViewModel(application: Application) : AndroidViewModel(appl
         }
     }
 
-    private fun getGameProperties() {
+    fun getGameProperties() {
         coroutineScope.launch {
             val sharedPref = getApplication<Application>().getSharedPreferences(
                 "connection",

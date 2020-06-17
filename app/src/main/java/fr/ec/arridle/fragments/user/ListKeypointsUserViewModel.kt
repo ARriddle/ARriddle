@@ -22,10 +22,9 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
 
     // The external immutable LiveData for the response String
 
-    val properties: LiveData<List<KeypointProperty>> = liveData {
-        val prop = getKeypointsProperties()
-        emit(prop)
-    }
+    private val _properties = MutableLiveData<List<KeypointProperty>>()
+    val properties: LiveData<List<KeypointProperty>>
+        get() = _properties
 
     // LiveData to handle navigation to the selected property
     private val _navigateToSelectedKeypoint = MutableLiveData<KeypointProperty>()
@@ -39,10 +38,10 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
     )
 
     init {
-        getSolvesProperties()
+        getKeypointsProperties()
     }
 
-    suspend fun getKeypointsProperties(): List<KeypointProperty> {
+    suspend fun getKeypointsPropertiesSync(): List<KeypointProperty> {
         val sharedPref = getApplication<Application>().getSharedPreferences(
             "connection",
             Context.MODE_PRIVATE
@@ -59,21 +58,32 @@ class ListKeypointsUserViewModel(application: Application) : AndroidViewModel(ap
         return emptyList()
     }
 
-     fun getSolvesProperties() {
+    fun getKeypointsProperties() {
         coroutineScope.launch {
             val sharedPref = getApplication<Application>().getSharedPreferences(
                 "connection",
                 Context.MODE_PRIVATE
             )
             val gameId = sharedPref.getString("game_id", null)
+            val userId = sharedPref?.getInt("user_id", -1)
+            val getKeypointsDeferred = API.retrofitService.getKeypointsAsync(game_id = gameId!!)
             val solves = API.retrofitService.getSolvesAsync(game_id = gameId!!)
 
             try {
-                val listResult = solves.await()
-                _solves.value = listResult
+                val listResult1 = getKeypointsDeferred.await()
+                val listResult2 = solves.await()
+                val solvesFiltered = listResult2.filter { it.userId == userId && it.gameId == gameId }
+                listResult1.forEach {
+                    it.isValidate =
+                        solvesFiltered.any { keypoint -> it.id == keypoint.keypointId }
+                }
+                _properties.value = listResult1
+                _solves.value = listResult2
+                Log.i("azer", _properties.value.toString())
+                Log.i("azer", _solves.value.toString())
 
             } catch (e: Exception) {
-                _solves.value = null
+                _properties.value = ArrayList()
                 e.printStackTrace()
             }
         }
