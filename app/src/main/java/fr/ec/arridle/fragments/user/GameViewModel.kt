@@ -69,7 +69,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getKeypointsProperties() {
+    fun getKeypointsProperties() {
         coroutineScope.launch {
             val sharedPref = getApplication<Application>().getSharedPreferences("connection",Context.MODE_PRIVATE)
             val gameId = sharedPref.getString("game_id", null)

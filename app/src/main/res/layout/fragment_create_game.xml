@@ -58,14 +58,14 @@
             android:id="@+id/editDuration"
             android:layout_width="192dp"
             android:layout_height="42dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:hint="@string/edit_duration"
             android:inputType="time"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/duration" />
 
         <Button
@@ -122,25 +122,29 @@
         <TextView
             android:id="@+id/nbPlayers"
             style="@style/SubTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_width="180dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal"
             android:text="@string/label_nb_players"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editGameName" />
 
         <EditText
             android:id="@+id/editNbPlayers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="131dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
             android:autofillHints=""
             android:ems="10"
             android:fontFamily="@font/roboto"
             android:hint="@string/edit_nb_players"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.185"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nbPlayers" />
 
@@ -148,11 +152,11 @@
             android:id="@+id/publicGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="52dp"
             android:text="@string/label_visibility"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/duration" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editNbPlayers"
+            app:layout_constraintTop_toBottomOf="@+id/editGameName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

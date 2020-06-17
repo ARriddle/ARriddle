@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import fr.ec.arridle.activities.MainActivity
 import fr.ec.arridle.adapters.KeypointAdapter
 import fr.ec.arridle.databinding.FragmentShowGameBinding
+import fr.ec.arridle.network.KeypointProperty
+import fr.ec.arridle.network.SolveProperty
 
 class GameFragment : Fragment() {
 
@@ -30,7 +32,8 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
-        binding.keypointsView.adapter =   KeypointAdapter(KeypointAdapter.OnClickListener { viewModel.displayKeypointDetails(it) })
+        binding.keypointsView.adapter =
+            KeypointAdapter(KeypointAdapter.OnClickListener { viewModel.displayKeypointDetails(it) })
         viewModel.navigateToSelectedKeypoint.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 // Must find the NavController from the Fragment
@@ -43,6 +46,18 @@ class GameFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
+
+        binding.imageView8.setOnClickListener {
+            this.findNavController().navigate(
+                GameFragmentDirections.actionGameFragmentToMapUserFragment(
+                )
+            )
+        }
+
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getKeypointsProperties()
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
         return binding.root
     }
 }

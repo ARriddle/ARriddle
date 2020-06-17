@@ -46,8 +46,7 @@ class ListKeypointsFragment : Fragment() {
 
         binding.chessKeypointPicture.setOnClickListener {
             this.findNavController().navigate(
-                ListKeypointsFragmentDirections.actionListKeypointsFragmentToCreateKeypointFragment(
-                )
+                ListKeypointsFragmentDirections.actionListKeypointsFragmentToCreateKeypointFragment(null)
             )
         }
 

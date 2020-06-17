@@ -27,6 +27,10 @@ class LeaderboardFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.leaderboard.adapter = UserAdapter()
+        binding.itemsswipetorefresh.setOnRefreshListener {
+            viewModel.getGameProperties()
+            binding.itemsswipetorefresh.isRefreshing = false
+        }
 
         // Inflate the layout for this fragment
         return binding.root
