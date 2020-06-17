@@ -42,16 +42,6 @@ class ListKeypointsUserFragment : Fragment() {
         val userId = sharedPref?.getInt("user_id", -1)
 
 
-        viewModel.solves.observe(viewLifecycleOwner, Observer {
-            val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
-            val keypoints: List<KeypointProperty>? = viewModel.properties.value
-            Log.i("azer", solves.toString())
-            Log.i("azer", keypoints.toString())
-            keypoints?.forEach { it.isValidate =
-                solves?.any { keypoint -> it.id == keypoint.keypointId }!!
-            }
-
-        })
 
         viewModel.navigateToSelectedKeypoint.observe(viewLifecycleOwner, Observer {
             if (null != it) {
@@ -68,13 +58,8 @@ class ListKeypointsUserFragment : Fragment() {
 
         binding.itemsswipetorefresh.setOnRefreshListener {
             viewModel.getKeypointsProperties()
-            viewModel.getSolvesProperties()
-            val solves : List<SolveProperty>? = viewModel.solves.value?. filter { it.userId == userId && it.gameId == gameId }
-            val keypoints: List<KeypointProperty>? = viewModel.properties.value
-            keypoints?.forEach { it.isValidate =
-                solves?.any { keypoint -> it.id == keypoint.keypointId }!!
-            }
             binding.itemsswipetorefresh.isRefreshing = false
+
         }
         // Inflate the layout for this fragment
         return binding.root

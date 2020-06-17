@@ -156,9 +156,6 @@
         android:name="fr.ec.arridle.fragments.user.GameFragment"
         android:label="fragment_show_game"
         tools:layout="@layout/fragment_show_game">
-        <action
-            android:id="@+id/action_gameFragment_to_listKeypointsUserFragment"
-            app:destination="@id/listKeypointsUserFragment" />
         <argument
             android:name="arg1"
             app:argType="string"
@@ -166,6 +163,9 @@
         <action
             android:id="@+id/action_gameFragment_to_keypointFragment"
             app:destination="@id/keypointFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_mapUserFragment"
+            app:destination="@id/mapUserFragment" />
     </fragment>
 
 </navigation>

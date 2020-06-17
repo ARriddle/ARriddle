@@ -32,7 +32,8 @@ class GameFragment : Fragment() {
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
-        binding.keypointsView.adapter =   KeypointAdapter(KeypointAdapter.OnClickListener { viewModel.displayKeypointDetails(it) })
+        binding.keypointsView.adapter =
+            KeypointAdapter(KeypointAdapter.OnClickListener { viewModel.displayKeypointDetails(it) })
         viewModel.navigateToSelectedKeypoint.observe(viewLifecycleOwner, Observer {
             if (null != it) {
                 // Must find the NavController from the Fragment
@@ -45,6 +46,13 @@ class GameFragment : Fragment() {
                 viewModel.displayKeypointDetailsComplete()
             }
         })
+
+        binding.imageView8.setOnClickListener {
+            this.findNavController().navigate(
+                GameFragmentDirections.actionGameFragmentToMapUserFragment(
+                )
+            )
+        }
 
         binding.itemsswipetorefresh.setOnRefreshListener {
             viewModel.getKeypointsProperties()
