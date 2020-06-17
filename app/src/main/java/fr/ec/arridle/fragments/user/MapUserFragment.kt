@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.model.LatLng
@@ -34,8 +35,6 @@ class MapUserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d("dbg", "map open")
-
         val view = inflater.inflate(R.layout.fragment_map_user, container, false)
 
         val mapView = view.findViewById<MapView>(R.id.mapView)
@@ -50,21 +49,10 @@ class MapUserFragment : Fragment() {
 
         mapView.getMapAsync { googleMap ->
             coroutineScope.launch {
-                viewModel.getKeypointsProperties().forEach { kp ->
-                    val pos = LatLng(
-                        kp.latitude ?: defaultPosition.latitude,
-                        kp.longitude ?: defaultPosition.longitude
-                    )
-
-                    googleMap.addMarker(
-                        MarkerOptions()
-                            .position(pos)
-                            .title(kp.name)
-                    )
-                }
+                val bounds = setupMap(googleMap)
 
                 // 50px of margin
-                val cameraUpdate = CameraUpdateFactory.newLatLngBounds(getMapBounds(), 50)
+                val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 50)
 
                 if (firstLoad) {
                     googleMap.animateCamera(cameraUpdate)
@@ -98,18 +86,32 @@ class MapUserFragment : Fragment() {
         return view
     }
 
-    private suspend fun getMapBounds(): LatLngBounds {
+    /* Adds markers for keypoints and returns the bounds that encompass them.
+     */
+    private suspend fun setupMap(map: GoogleMap): LatLngBounds {
         var bounds = LatLngBounds.builder()
+        var hasKeypoints = false
 
-        viewModel.getKeypointsProperties().forEach {
+        viewModel.getKeypointsProperties().forEach { kp ->
+            hasKeypoints = true
+
             val pos = LatLng(
-                it.latitude ?: 0.0,
-                it.longitude ?: 0.0
+                kp.latitude ?: fr.ec.arridle.fragments.manager.defaultPosition.latitude,
+                kp.longitude ?: fr.ec.arridle.fragments.manager.defaultPosition.longitude
             )
 
             bounds = bounds.include(pos)
+            map.addMarker(
+                MarkerOptions()
+                    .position(pos)
+                    .title(kp.name)
+            )
         }
+
+        if (!hasKeypoints)
+            bounds = bounds.include(fr.ec.arridle.fragments.manager.defaultPosition)
 
         return bounds.build()
     }
+
 }

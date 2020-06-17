@@ -26,7 +26,9 @@ class CreateKeypointViewModel(application: Application) : AndroidViewModel(appli
         description: String,
         solution: String,
         points: Int?,
-        gameId: String
+        gameId: String,
+        latitude: Double?,
+        longitude: Double?
     ) {
         coroutineScope {
             launch {
@@ -35,7 +37,9 @@ class CreateKeypointViewModel(application: Application) : AndroidViewModel(appli
                     description = description,
                     solution = solution,
                     points = points ?: 0,
-                    game_id = gameId
+                    game_id = gameId,
+                    latitude = latitude,
+                    longitude = longitude
                 )
                 try {
                     val game = post.await()

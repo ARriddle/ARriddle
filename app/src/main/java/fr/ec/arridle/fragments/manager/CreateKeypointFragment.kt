@@ -1,6 +1,5 @@
 package fr.ec.arridle.fragments.manager
 
-import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,10 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.google.android.gms.maps.model.LatLng
 import fr.ec.arridle.databinding.FragmentCreateKeypointBinding
 import kotlinx.coroutines.runBlocking
 
 class CreateKeypointFragment : Fragment() {
+    private var coordinates = LatLng(50.61423, 3.13747)
     private val viewModel: CreateKeypointViewModel by lazy {
         ViewModelProvider(this).get(CreateKeypointViewModel::class.java)
     }
@@ -43,11 +44,17 @@ class CreateKeypointFragment : Fragment() {
                     description = description,
                     solution = solution,
                     points = points,
-                    gameId = gameId!!
+                    gameId = gameId!!,
+                    latitude = coordinates.latitude,
+                    longitude = coordinates.longitude
                 )
             }
             view?.findNavController()?.navigateUp()
 
+        }
+
+        (arguments?.get("coordinates") as LatLng).let {
+            coordinates = it
         }
 
         return binding.root

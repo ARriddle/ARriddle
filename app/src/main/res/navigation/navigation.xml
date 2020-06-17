@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_mapFragment_to_keypointFragment"
             app:destination="@id/keypointFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_createKeypointFragment"
+            app:destination="@id/createKeypointFragment" />
     </fragment>
     <fragment
         android:id="@+id/listKeypointsFragment"
@@ -135,7 +138,12 @@
         android:id="@+id/createKeypointFragment"
         android:name="fr.ec.arridle.fragments.manager.CreateKeypointFragment"
         android:label="fragment_create_keypoint"
-        tools:layout="@layout/fragment_create_keypoint" />
+        tools:layout="@layout/fragment_create_keypoint" >
+        <argument
+            android:name="coordinates"
+            app:argType="com.google.android.gms.maps.model.LatLng"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/listKeypointsUserFragment"
         android:name="fr.ec.arridle.fragments.user.ListKeypointsUserFragment"
