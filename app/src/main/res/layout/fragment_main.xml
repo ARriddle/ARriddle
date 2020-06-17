@@ -109,14 +109,15 @@
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/itemsswipetorefresh"
-                android:layout_width="match_parent"
-                android:layout_height="413dp"
-                android:layout_marginTop="48dp"
+                android:layout_width="362dp"
+                android:layout_height="378dp"
                 android:clipToPadding="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/labelCurrentGames">
+                app:layout_constraintTop_toBottomOf="@+id/labelCurrentGames"
+                app:layout_constraintVertical_bias="0.25">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/game_list"
                     android:layout_width="match_parent"
