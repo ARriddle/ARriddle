@@ -4,6 +4,18 @@
     <string name="title_apropos_fragment">À propos</string>
     <string name="title_settings_fragment">Paramètres</string>
     <string name="title_main_fragment">Accueil</string>
+    <string name="title_leaderboard_fragment">Classement</string>
+    <string name="title_map_fragment">Carte</string>
+    <string name="title_list_keypoints_fragment">Points-clés</string>
+    <string name="title_manage_game_fragment">Gérér la partie</string>
+    <string name="title_join_fragment">Rejoindre une partie</string>
+    <string name="title_create_game_fragment">Créer une partie</string>
+    <string name="title_manage_user_fragment">Gérer l\'utilisateur</string>
+    <string name="title_profile_fragment">Profil</string>
+    <string name="title_list_user_fragment">Liste des utilisateurs</string>
+    <string name="title_keypoint_fragment">Point-clé</string>
+    <string name="title_create_keypoint_fragment">Créer un point-clé</string>
+    <string name="title_game_fragment">Partie en cours</string>
 
 
     <!-- textes divers -->
@@ -41,7 +53,7 @@
     <string name="label_create_game">Créer une partie</string>
     <string name="label_create_game2">Créer la partie</string>
     <string name="label_create_keypoint">Créer un point clef</string>
-    <string name="label_keypoint_name">"Nom du point d'interêt "</string>
+    <string name="label_keypoint_name">"Nom du point clé"</string>
     <string name="label_distance">Distance</string>
     <string name="label_nb_validation">Nombre de Validation</string>
     <string name="label_game_name2">Nom de la partie</string>
@@ -61,7 +73,7 @@
     <string name="label_rank">Classement</string>
     <string name="label_hunt">Chasser</string>
     <string name="label_next_keypoint">Prochain point clef</string>
-    <string name="label_list_keypoint">Liste des points d\'intérêt</string>
+    <string name="label_list_keypoint">Liste des points-clés</string>
     <string name="label_description">Description de l\'activité</string>
     <string name="label_answer">Votre réponse</string>
     <string name="label_vocal">Vocal</string>

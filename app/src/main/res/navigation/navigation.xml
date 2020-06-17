@@ -39,17 +39,17 @@
     <fragment
         android:id="@+id/leaderboardFragment"
         android:name="fr.ec.arridle.fragments.manager.LeaderboardFragment"
-        android:label="fragment_leaderboard"
+        android:label="@string/title_leaderboard_fragment"
         tools:layout="@layout/fragment_leaderboard" />
     <fragment
         android:id="@+id/mapFragment"
         android:name="fr.ec.arridle.fragments.manager.MapFragment"
-        android:label="fragment_map"
+        android:label="@string/title_map_fragment"
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/listKeypointsFragment"
         android:name="fr.ec.arridle.fragments.manager.ListKeypointsFragment"
-        android:label="fragment_list_keypoints"
+        android:label="@string/title_list_keypoints_fragment"
         tools:layout="@layout/fragment_list_keypoints">
         <action
             android:id="@+id/action_listKeypointsFragment_to_createKeypointFragment"
@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/manageGameFragment"
         android:name="fr.ec.arridle.fragments.manager.ManageGameFragment"
-        android:label="fragment_manage_game"
+        android:label="@string/title_manage_game_fragment"
         tools:layout="@layout/fragment_manage_game">
         <action
             android:id="@+id/action_manageGameFragment_to_listUsersFragment"
@@ -76,7 +76,7 @@
     <fragment
         android:id="@+id/joinFragment"
         android:name="fr.ec.arridle.fragments.user.JoinGameFragment"
-        android:label="fragment_join"
+        android:label="@string/title_join_fragment"
         tools:layout="@layout/fragment_join_game">
         <action
             android:id="@+id/action_joinFragment_to_gameFragment"
@@ -87,7 +87,7 @@
     <fragment
         android:id="@+id/createGameFragment"
         android:name="fr.ec.arridle.fragments.manager.CreateGameFragment"
-        android:label="fragment_create_game"
+        android:label="@string/title_create_game_fragment"
         tools:layout="@layout/fragment_create_game">
         <action
             android:id="@+id/action_createGameFragment_to_manageGameFragment"
@@ -96,12 +96,12 @@
     <fragment
         android:id="@+id/fragmentManageUser"
         android:name="fr.ec.arridle.fragments.manager.ManageUserFragment"
-        android:label="fragment_manage_user"
+        android:label="@string/title_manage_user_fragment"
         tools:layout="@layout/fragment_manage_user" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="fr.ec.arridle.fragments.user.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/title_profile_fragment"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_mainFragment"
@@ -112,7 +112,7 @@
     <fragment
         android:id="@+id/listUsersFragment"
         android:name="fr.ec.arridle.fragments.manager.ListUsersFragment"
-        android:label="fragment_list_users"
+        android:label="@string/label_list_users"
         tools:layout="@layout/fragment_list_users">
         <action
             android:id="@+id/action_listUsersFragment_to_fragment_manage_user"
@@ -121,7 +121,7 @@
     <fragment
         android:id="@+id/keypointFragment"
         android:name="fr.ec.arridle.fragments.user.KeypointFragment"
-        android:label="fragment_show_keypoint"
+        android:label="@string/title_keypoint_fragment"
         tools:layout="@layout/fragment_show_keypoint">
         <argument
             android:name="keypointId"
@@ -130,12 +130,12 @@
     <fragment
         android:id="@+id/createKeypointFragment"
         android:name="fr.ec.arridle.fragments.manager.CreateKeypointFragment"
-        android:label="fragment_create_keypoint"
+        android:label="@string/title_create_game_fragment"
         tools:layout="@layout/fragment_create_keypoint" />
     <fragment
         android:id="@+id/listKeypointsUserFragment"
         android:name="fr.ec.arridle.fragments.user.ListKeypointsUserFragment"
-        android:label="fragment_list_keypoints_user"
+        android:label="@string/title_list_keypoints_fragment"
         tools:layout="@layout/fragment_list_keypoints_user">
         <action
             android:id="@+id/action_listKeypointsFragmentUser_to_keypointFragment"
@@ -144,17 +144,17 @@
     <fragment
         android:id="@+id/mapUserFragment"
         android:name="fr.ec.arridle.fragments.user.MapUserFragment"
-        android:label="fragment_map_user"
+        android:label="@string/title_map_fragment"
         tools:layout="@layout/fragment_map_user" />
     <fragment
         android:id="@+id/leaderboardUserFragment"
         android:name="fr.ec.arridle.fragments.user.LeaderboardUserFragment"
-        android:label="fragment_leaderboard_user"
+        android:label="@string/title_leaderboard_fragment"
         tools:layout="@layout/fragment_leaderboard_user" />
     <fragment
         android:id="@+id/gameFragment"
         android:name="fr.ec.arridle.fragments.user.GameFragment"
-        android:label="fragment_show_game"
+        android:label="@string/title_game_fragment"
         tools:layout="@layout/fragment_show_game">
         <argument
             android:name="arg1"
