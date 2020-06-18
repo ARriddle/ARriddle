@@ -20,3 +20,6 @@ En tant qu'organisateur de partie, vous pouvez géolocaliser des points d'intér
 ![](https://github.com/ARriddle/ARriddle/blob/master/screenshots/12.png)
 ![](https://github.com/ARriddle/ARriddle/blob/master/screenshots/13.png)
 
+## Références
+
+Icon made by Smashicons www.flaticon.com
